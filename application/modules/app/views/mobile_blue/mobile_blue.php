@@ -24,6 +24,7 @@
 		<title><?= $title; ?></title>
 		
 		<?php $this->load->view('css_module/css_module') ?>
+		<?php $this->load->view('js_module/js_module') ?>
 		
 
 	</head>
@@ -54,13 +55,50 @@
 	  				
 					<div class="row">
 						
-						<?php $this->load->view('include/menu_template') ?>
+						<div class="col-md-3">
+						
+							<?php $this->load->view('include/menu_template') ?>
+							
+							<?php $this->load->view('include/banners_template') ?>
+						
+						</div>
+						
+						<div class="col-md-9">
+							
+			   				<div class="singel_right">
+			   					
+			   					<?php $this->load->view('include/carrusel_template') ?>
+							
+								<?php $this->load->view('include/description_template') ?>
+			   					
+		   					</div>
+		   						
+	   						<?php $this->load->view('include/tabs_template') ?>
+					
+						</div>
 						
 					</div>
 					
 				</div>
 	  			
 	  		</div>
+	  		
+	  		<div class="container">
+	  			
+	  			<?php $this->load->view('include/shipping_template') ?>
+	  			
+  			</div>
+  			
+
+  			<div class="footer">
+  				
+				<div class="container">
+					
+					<?php $this->load->view('include/footer_template') ?>
+					
+				</div>
+					
+			</div>
 	  		
 	  	</div>
 
