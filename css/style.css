@@ -1,0 +1,261 @@
+@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+header {
+    background: linear-gradient(#56585d, #2f3034) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #000;
+    height: 45px;
+    max-height: 45px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    margin-bottom: 46px;
+}
+
+.logo {
+    box-shadow: 8px 20px 18px -2px rgba(0, 0, 0, 0.22);
+    float: left;
+    width: 60px;
+}
+
+.top_nav, .extra {
+    float: left;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+.top_nav li, .extra li {
+    float: left;
+    position: relative;
+}
+
+.top_nav > li > a:before, .extra > li > a:before {
+    box-shadow: 8px 20px 18px -2px rgba(0, 0, 0, 0.22);
+    content: "";
+    height: 45px;
+    left: -100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.top_nav > li > a, .extra > li > a {
+  font-weight: bold;
+}
+
+.top_nav li a, .extra li a {
+  color: #efefef;
+  display: block;
+  font-size: 13px;
+  height: 45px;
+  line-height: 45px;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.22);
+}
+
+.logo a {
+    background: url("../image/logoTop.png") no-repeat scroll 50% 50% rgba(0, 0, 0, 0);
+    border: medium none;
+    display: block;
+    height: 45px;
+    outline: medium none;
+    text-decoration: none;
+    text-indent: -9999px;
+    width: 60px;
+}
+
+.extra {
+    float: right;
+    margin-right: 1px;
+}
+
+.extra .icons {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url('../image/bge02.jpg');
+	opacity:0.8;
+	background-size: cover;
+	-webkit-filter: blur(5px);
+	z-index: 0;
+}
+
+#APP .body{background-image:none;}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+	z-index: 1;
+	opacity: 0.7;
+}
+
+#APP .grad{z-index: 0;}
+
+.header{
+	position: absolute;
+	top: calc(50% - 35px);
+	left: calc(50% - 255px);
+	z-index: 2;
+}
+
+.error {
+  background: none repeat scroll 0 0 transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  left: calc(50% - 255px);
+  padding: 10px;
+  position: absolute;
+  top: calc(25% - 35px);
+  width: 454px;
+  z-index: 2;
+}
+
+.fa-rocket{
+	-ms-transform: rotate(109deg)!important; /* IE 9 */
+    -webkit-transform: rotate(109deg) !important; /* Chrome, Safari, Opera */
+    transform: rotate(109deg) !important;
+}
+.header div, .error div{
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+}
+
+.alert-danger{
+	
+	font-size: 20px !important;
+	width: 100%;
+}
+
+.error div{font-size: 30px;}
+
+.header div span, .error div span,.alert-danger{
+	color: #517C1C !important;
+}
+
+.login{
+	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+
+.login input[type=text]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.login input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.login input[type=submit],#error_404 input[type=button],#error_500 input[type=button]{
+	width: 260px;
+	height: 35px;
+	background: #517C1C;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+#error_404 input[type=button],#error_500 input[type=button]{width: 506px;}
+
+.login input[type=button]:hover{
+	opacity: 0.8;
+}
+.error_500_message {
+  font-size: 15px !important;
+}
+.login input[type=button]:active{
+	opacity: 0.6;
+}
+
+.login input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=button]:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+.page-content-wrap {
+  height: 400px;
+  left: 50%;
+  margin-left: -300px;
+  position: absolute;
+  top: 10%;
+  width: 600px;
+  z-index: 2;
+}
