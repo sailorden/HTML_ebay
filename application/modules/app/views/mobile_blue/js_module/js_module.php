@@ -1,7 +1,9 @@
 <?= link_js('js/mobile_blue/jquery.min.js') ?><!--internal JS-->
 
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
 <?= link_js('js/mobile_blue/jquery.easydropdown.js') ?><!--internal JS-->
-<?= link_js('js/jquery.magnific-popup.js') ?><!--internal JS-->
+<?= link_js('js/mobile_blue/jquery.magnific-popup.js') ?><!--internal JS-->
 <?= link_js('js/mobile_blue/jquery.etalage.min.js') ?><!--internal JS-->
 
 <?= link_js('js/mobile_blue/easyResponsiveTabs.js') ?><!--internal JS-->

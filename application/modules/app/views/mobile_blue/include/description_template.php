@@ -11,10 +11,10 @@
     
     <div class="row">
     	<div class="col-md-6">
-    		<img src="images/animado.gif"/>
+    		<img src="<?= base_url('/mobile_blue/image/animado.gif') ?>"/>
     	</div>
     	<div class="col-md-6">
-    		<img src="images/animado.gif"/>
+    		<img src="<?= base_url('/mobile_blue/image/animado.gif') ?>"/>
     	</div>
     </div>
     

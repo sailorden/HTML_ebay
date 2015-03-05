@@ -20,11 +20,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		
+		
 
 		<title><?= $title; ?></title>
 		
 		<?php $this->load->view('css_module/css_module') ?>
-		<?php $this->load->view('js_module/js_module') ?>
 		
 
 	</head>
