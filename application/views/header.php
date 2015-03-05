@@ -1,20 +1,15 @@
 <header>
 	
 	<div class="logo">
-		<a href="/">Labs</a>
+		<a href="/">HTML ebay</a>
 	</div>
 	
 	<ul class="top_nav">
 
-				<li><a href="/labs">New</a></li>
+		<li><a href="/labs">Mis plantillas</a></li>
+		<li class="green"><a id="fork" href="">Crear plantilla</a></li>
 
-				<li><a id="fork" href="javascript:void(0);">Fork</a></li>
-		<li><a style="display: none;" id="save" href="javascript:void(0);">Save</a></li>
-		
-		
-				
-		
-		<li class="multi">
+		<!--<li class="multi">
 			<a href="javascript:void(0);">Share</a>
 
 			<ul class="share_box dropdown" style="top: 44px; opacity: 0; display: none;">
@@ -22,7 +17,7 @@
 					<label for="share_url">Link</label>
 					<input type="url" id="share_url"
 					value="http://cssdeck.com/labs/large-pressable-css3-navigation" onclick="this.select();">
-				</li>-->
+				</li>
 				<li>
 					<label for="share_full_url">Full Screen Result</label>
 					<input type="url" onclick="this.select();" value="http://cssdeck.com/labs/full/large-pressable-css3-navigation" id="share_full_url">
@@ -45,7 +40,7 @@
 					</a>
 				</li>
 			</ul>
-		</li>
+		</li>-->
 		
 	</ul>
 	
