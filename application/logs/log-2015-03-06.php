@@ -44,3 +44,11 @@ ERROR - 2015-03-06 12:53:47 --> 404 Page Not Found: css/mobile_blue/images/hint.
 ERROR - 2015-03-06 12:53:47 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
 ERROR - 2015-03-06 12:56:15 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
 ERROR - 2015-03-06 12:56:15 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:57:27 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:57:27 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:59:52 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:59:52 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 13:01:28 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 13:01:28 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 13:04:26 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 13:04:26 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
