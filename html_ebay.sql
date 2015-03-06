@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-03-2015 a las 12:35:58
+-- Tiempo de generación: 06-03-2015 a las 12:56:38
 -- Versión del servidor: 5.6.17-log
 -- Versión de PHP: 5.5.12
 
@@ -27,10 +27,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `carrusel` (
-  `id_carrusel` int(11) NOT NULL,
+  `id_carrusel` int(11) NOT NULL AUTO_INCREMENT,
   `id_html` int(11) NOT NULL,
-  `image_carrusel` varchar(250) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `image_carrusel` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_carrusel`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `carrusel`
+--
+
+INSERT INTO `carrusel` (`id_carrusel`, `id_html`, `image_carrusel`) VALUES
+(1, 1, 'pic1.jpg'),
+(2, 1, 'pic2.jpg');
 
 -- --------------------------------------------------------
 

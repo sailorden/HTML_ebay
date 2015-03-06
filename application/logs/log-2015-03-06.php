@@ -5,6 +5,7 @@ ERROR - 2015-03-06 11:47:32 --> 404 Page Not Found: css/mobile_blue/images/loadi
 ERROR - 2015-03-06 11:47:32 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
 ERROR - 2015-03-06 11:49:22 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
 ERROR - 2015-03-06 11:49:23 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+<<<<<<< HEAD
 ERROR - 2015-03-06 11:03:48 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
 ERROR - 2015-03-06 11:03:48 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
 ERROR - 2015-03-06 11:11:36 --> Severity: Parsing Error --> syntax error, unexpected '}' D:\wamp\www\HTML_ebay\application\modules\app\controllers\app.php 69
@@ -55,3 +56,52 @@ ERROR - 2015-03-06 12:21:35 --> Severity: Warning --> Missing argument 1 for sho
 ERROR - 2015-03-06 12:21:35 --> Severity: Warning --> Missing argument 1 for show_error(), called in D:\wamp\www\HTML_ebay\application\modules\app\models\clone_template_model.php on line 48 and defined D:\wamp\www\HTML_ebay\system\core\Common.php 407
 ERROR - 2015-03-06 12:23:45 --> Severity: Warning --> Missing argument 1 for show_error(), called in D:\wamp\www\HTML_ebay\application\modules\app\models\clone_template_model.php on line 48 and defined D:\wamp\www\HTML_ebay\system\core\Common.php 407
 ERROR - 2015-03-06 12:23:45 --> Severity: Warning --> Missing argument 1 for show_error(), called in D:\wamp\www\HTML_ebay\application\modules\app\models\clone_template_model.php on line 48 and defined D:\wamp\www\HTML_ebay\system\core\Common.php 407
+=======
+ERROR - 2015-03-06 12:18:31 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:18:31 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:34:32 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:34:32 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:41:03 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:41:03 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:42:28 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:42:29 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:42:50 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:42:51 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:43:19 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:43:19 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:44:09 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:44:09 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:44:27 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:44:27 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:45:34 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:45:34 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:46:14 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:46:14 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:46:19 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:46:19 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:46:27 --> Severity: Error --> Cannot access empty property C:\wamp\www\HTML_ebay\application\modules\app\views\mobile_blue\include\social_template.php 8
+ERROR - 2015-03-06 12:46:31 --> Severity: Error --> Cannot access empty property C:\wamp\www\HTML_ebay\application\modules\app\views\mobile_blue\include\social_template.php 8
+ERROR - 2015-03-06 12:48:06 --> Severity: Error --> Cannot access empty property C:\wamp\www\HTML_ebay\application\modules\app\views\mobile_blue\include\social_template.php 8
+ERROR - 2015-03-06 12:48:54 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:48:54 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:49:19 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:49:19 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:49:22 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:49:22 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:49:29 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:49:29 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:49:44 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:49:44 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:53:47 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:53:47 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:56:15 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:56:15 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:57:27 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:57:27 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 12:59:52 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 12:59:52 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 13:01:28 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-06 13:01:28 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 13:04:26 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-06 13:04:26 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+>>>>>>> origin/master
