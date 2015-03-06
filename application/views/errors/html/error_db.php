@@ -10,9 +10,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 		<title>ERROR 500 - HTML EBAY</title>
 	
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
 		<link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
-		<script src="js/prefixfree.min.js"></script>
+		<script src="<?= base_url('js/prefixfree.min.js') ?>"></script>
 	
 	</head>
 
@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div class="header">
 			<div><strong><span> Ups!!!</span></strong> 500<strong><span> Error interno del servidor</span></strong></div><br />
-			<div class="error_500_message">Error <?php echo $message; ?></div><br />
+			<div class="error_500_message"><?php echo $message; ?></div><br />
 		</div>
 		
 		<br>
