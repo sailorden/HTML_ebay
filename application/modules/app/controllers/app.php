@@ -21,6 +21,7 @@ class App  extends MX_Controller {
 		
 		
 		if($this->App_model->get_temporal($id)){
+			
 			redirect('app/html/'.$id.'/'.$this->App_model->get_temporal($id));
 		}
 
@@ -61,7 +62,9 @@ class App  extends MX_Controller {
 		
 		if($id_html == 0){
 			
+			$this->load->model('Clone_template_model');
 			
+			$this->Clone_template_model->clone_html($id_template);
 			
 		}else{
 				
