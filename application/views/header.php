@@ -7,7 +7,7 @@
 	<ul class="top_nav">
 
 		<li><a href="/labs">Mis plantillas</a></li>
-		<li class="green"><a id="fork" href="">Crear plantilla</a></li>
+		<li class="green"><?=  anchor('app/html', 'Crear plantilla', '') ?></li>
 
 		<!--<li class="multi">
 			<a href="javascript:void(0);">Share</a>
@@ -43,26 +43,25 @@
 		</li>-->
 		
 	</ul>
-	
+
 	<ul class="extra">
 		<!-- Nav -->
-		<li>
-			<a title="Like this Creation" href="http://cssdeck.com/login/?next=%2Flabs%2Flarge-pressable-css3-navigation" class="icons " id="like">
-				<i class="icon-heart"></i>
-			</a>
-		</li>
-		<li>
-			<a title="Next Item" href="/labs/css-only-solar-system-model" class="icons" id="random_item">
-				<i class="icon-random"></i>
-			</a>
-		</li>
-		<li>
-			<a title="Next Item" href="/labs/css-only-solar-system-model" class="icons" id="random_item">
-				<i class="icon-random"></i>
-			</a>
-		</li>
+		
+		<?php if ($this->uri->segment(2) == 'html'): ?>
+			
+			<li><?=  anchor('login/logout', '<i class="fa fa-floppy-o"></i>','title="Guardar" class="icons"') ?></li>
+			
+			<li><?=  anchor('login/logout', '<i class="fa fa-paste"></i>','title="Guardar como" class="icons"') ?></li>
+			
+			<li><?=  anchor('login/logout', '<i class="fa fa-paint-brush"></i>','title="Estilo" class="icons"') ?></li>
+			
+			<li><?=  anchor('login/logout', '<i class="fa fa-eraser"></i>','title="Limpiar" class="icons"') ?></li>
+		
+		<?php endif ?>
 
-		<li><?=  anchor('login/logout', '<i class="fa fa-power-off"></i>','title="Salir" class="icons"') ?></li>
+		<li><?=  anchor('login/logout', '<i class="fa fa-power-off"></i>','title="Cerrar sesión" class="icons"') ?></li>
+		
 	</ul>
+
 	
 </header>
