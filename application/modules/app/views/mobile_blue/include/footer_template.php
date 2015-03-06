@@ -1,11 +1,17 @@
-<div class="footer-grid">
-	<h3>Atención al cliente</h3>
-	<p class="quick_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mattis dolor. Pellentesque ultricies turpis eget tellus hendrerit volutpat. Sed sit amet erat sit amet magna feugiat lacinia eget in ligula. Phasellus sem nibh, viverra at elementum nec, feugiat ac magna. Pellentesque pellentesque malesuada magna sed condimentum. </p>
-</div>
+<?php if ($html -> title_footer_1): ?>
+	
+	<div class="footer-grid">
+		<h3><?= $html -> title_footer_1 ?></h3>
+		<p class="quick_desc"><?= $html -> text_footer_1 ?></p>
+	</div>
+	
+<?php endif ?>
 
-<div class="footer-grid">
-	<h3>Feedback +</h3>
-    <p class="quick_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mattis dolor. Pellentesque ultricies turpis eget tellus hendrerit volutpat. Sed sit amet erat sit amet magna feugiat lacinia eget in ligula. Phasellus sem nibh, viverra at elementum nec, feugiat ac magna. Pellentesque pellentesque malesuada magna sed condimentum. </p>
-</div>
-
-<div class="clearfix"> </div>
+<?php if ($html -> title_footer_2): ?>
+	
+	<div class="footer-grid">
+		<h3><?= $html -> title_footer_2 ?></h3>
+		<p class="quick_desc"><?= $html -> text_footer_2 ?></p>
+	</div>
+	
+<?php endif ?>
