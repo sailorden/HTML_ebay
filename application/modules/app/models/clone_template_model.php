@@ -10,7 +10,8 @@ class Clone_template_model extends CI_Model{
 		$this->db->trans_start();
 		$query = $this->db->get_where('html', array('id_template' => $id_template,'state' => 2));
 		$this->db->trans_complete();
-		if ($this->db->trans_status() === FALSE) log_message(); 
+		if ($this->db->trans_status() === FALSE) 
+		show_error('Parece que algo a fallado al intentar acceder a su base de datos, por favor inténtelo más tarde y si el problema continua póngase en contacto con el administrador.');
 		
 		if ($query->num_rows() > 0){
 
@@ -42,10 +43,11 @@ class Clone_template_model extends CI_Model{
 			$this->db->insert('html', $data);
 			$this->db->trans_complete(); 
 			if ($this->db->trans_status() === FALSE) log_message();
+			show_error('Parece que algo a fallado al intentar acceder a su base de datos, por favor inténtelo más tarde y si el problema continua póngase en contacto con el administrador.');
 			
 		}else{
 				
-				show_error(500);
+			show_error('Parece que la Base de datos no ha arrojado ningún resultado.');	 
 		}
 				
 	
