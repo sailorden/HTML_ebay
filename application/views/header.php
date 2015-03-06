@@ -7,7 +7,7 @@
 	<ul class="top_nav">
 
 		<li><a href="/labs">Mis plantillas</a></li>
-		<li class="green"><?=  anchor('app/html', 'Crear plantilla', '') ?></li>
+		<li class="green"><?=  anchor('app/html/'.$this->uri->segment(3), 'Crear plantilla', '') ?></li>
 
 		<!--<li class="multi">
 			<a href="javascript:void(0);">Share</a>
