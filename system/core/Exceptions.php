@@ -154,7 +154,7 @@ class CI_Exceptions {
 	 *
 	 * @return	string	Error page output
 	 */
-	public function show_error($heading, $message, $template = 'error_general', $status_code = 500)
+	public function show_error($heading, $message, $template = 'error_db', $status_code = 500)
 	{
 
 		$templates_path = config_item('error_views_path');
@@ -180,7 +180,9 @@ class CI_Exceptions {
 			ob_end_flush();
 		}
 		ob_start();
+		if($status_code = 500) $template = 'html'.DIRECTORY_SEPARATOR.'error_db';
 		include($templates_path.$template.'.php');
+		echo $templates_path.$template.'.php';
 		$buffer = ob_get_contents();
 		ob_end_clean();
 		return $buffer;
