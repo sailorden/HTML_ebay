@@ -26,9 +26,9 @@ class App  extends MX_Controller {
 			$data['html'] = $this->App_model->get_basic_html($id);
 		}*/
 
-		$data['title'] = "Panel de control | YCP Manager";
+		$data['title'] = "HTML ebay";
 			
-		$data['keywords'] = url_title($this->App_model->get_template($id), 'underscore');
+		$data['keywords'] = "";
 
 		$data['description'] = "";
 			
@@ -47,25 +47,33 @@ class App  extends MX_Controller {
 		
  	}
 	
-	public function html($id = 1, $id_html){
-
-		$data['title'] = "Panel de control | YCP Manager";
-			
-		$data['keywords'] = url_title($this->App_model->get_template($id), 'underscore');
-
-		$data['description'] = "";
-			
-		$data['reference'] = 'APP';
-
-		$data['view'] = url_title($this->App_model->get_template($id), 'underscore').'/'.url_title($this->App_model->get_template($id), 'underscore');
-			
-		$data['robots'] = 'noindex, nofollow';
+	public function html($id = 1, $id_html = 0){
 		
-		$data['js'] =  $this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/js_module/js_module','',TRUE);
+		if($id_html == 0){
+			
+			
+			
+		}else{
+				
+			$data['title'] = "HTML ebay";
+				
+			$data['keywords'] = "";
+	
+			$data['description'] = "";
+				
+			$data['reference'] = 'APP';
+	
+			$data['view'] = url_title($this->App_model->get_template($id), 'underscore').'/'.url_title($this->App_model->get_template($id), 'underscore');
+				
+			$data['robots'] = 'noindex, nofollow';
+			
+			$data['js'] =  $this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/js_module/js_module','',TRUE);
+			
+			$data['template'] = $this->App_model->get_template();
+			
+			$this->load->view('layout', $data);
 		
-		$data['template'] = $this->App_model->get_template();
-		
-		$this->load->view('layout', $data);
+		}
 		
 		
  	}
