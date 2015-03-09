@@ -8,6 +8,8 @@
 
 <?= link_js('js/mobile_blue/easyResponsiveTabs.js') ?><!--internal JS-->
 
+
+	
 <script>
 	$(document).ready(function() {
 		$('.popup-with-zoom-anim').magnificPopup({
@@ -57,5 +59,8 @@
 <?php if ($this->uri->segment(2) == 'html'): ?>
 	
 	<?= link_js('js/mobile_blue/interface.js') ?>
+	
+	<?= link_js('js/ckeditor/ckeditor.js') ?>
+	<?= link_js('js/ckeditor/inline.js') ?>
 	
 <?php endif ?>	

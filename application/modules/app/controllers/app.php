@@ -22,7 +22,7 @@ class App  extends MX_Controller {
 		
 		if($this->App_model->get_temporal($id)){
 			
-			redirect('app/html/'.$id.'/'.$this->App_model->get_temporal($id));
+			redirect('app/html/'.$id.'/'.$this->App_model->get_temporal($id)->id_html);
 		}
 
 		$data['title'] = "HTML ebay";
