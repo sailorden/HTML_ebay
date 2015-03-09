@@ -63,9 +63,9 @@ class App  extends MX_Controller {
 		if($id_html == 0){
 			
 			$this->load->model('Clone_template_model');
-			
-			$this->Clone_template_model->clone_html($id_template);
-			
+			$html = $this->Clone_template_model->clone_template($id);
+			redirect('app/html/'.$id.'/'.$html);
+
 		}else{
 				
 			$data['title'] = "HTML ebay";
@@ -82,7 +82,19 @@ class App  extends MX_Controller {
 			
 			$data['js'] =  $this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/js_module/js_module','',TRUE);
 			
-			$data['template'] = $this->App_model->get_template();
+			$data['template'] = $this->App_model->get_template($id);
+		
+			$data['html'] = $this->App_model->get_html($id,$id_html);
+			
+			$data['style'] = $this->App_model->get_style_html($data['html']->id_html);
+			
+			$data['social'] = $this->App_model->get_social_html($data['html']->id_html);
+			
+			$data['menu'] = $this->App_model->get_menu_html($data['html']->id_html);
+			
+			$data['tabs'] = $this->App_model->get_tabs_html($data['html']->id_html);
+			
+			$data['carrusel'] = $this->App_model->get_carrusel_html($data['html']->id_html);
 			
 			$this->load->view('layout', $data);
 		

@@ -9,3 +9,9 @@
 <?= link_tag('css/mobile_blue/magnific-popup.css') ?>
 <?= link_tag('css/mobile_blue/etalage.css') ?>
 
+<?php if ($this->uri->segment(2) == 'html'): ?>
+	
+	<?= link_tag('css/mobile_blue/interface.css') ?>
+	
+<?php endif ?>
+
