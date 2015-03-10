@@ -22,7 +22,7 @@ class App  extends MX_Controller {
 		
 		if($this->App_model->get_temporal($id)){
 			
-			redirect('app/html/'.$id.'/'.$this->App_model->get_temporal($id));
+			redirect('app/html/'.$id.'/'.$this->App_model->get_temporal($id)->id_html);
 		}
 
 		$data['title'] = "HTML ebay";
@@ -34,6 +34,8 @@ class App  extends MX_Controller {
 		$data['reference'] = 'APP';
 
 		$data['view'] = url_title($this->App_model->get_template($id), 'underscore').'/'.url_title($this->App_model->get_template($id), 'underscore');
+		
+		$data['folder_template'] = url_title($this->App_model->get_template($id), 'underscore');
 			
 		$data['robots'] = 'noindex, nofollow';
 		
@@ -77,6 +79,8 @@ class App  extends MX_Controller {
 			$data['reference'] = 'APP';
 	
 			$data['view'] = url_title($this->App_model->get_template($id), 'underscore').'/'.url_title($this->App_model->get_template($id), 'underscore');
+			
+			$data['folder_template'] = url_title($this->App_model->get_template($id), 'underscore');
 				
 			$data['robots'] = 'noindex, nofollow';
 			
@@ -100,8 +104,41 @@ class App  extends MX_Controller {
 		
 		}
 		
-		
  	}
 	
-	
+	public function up_load_image(){
+		
+		if($this->input->is_ajax_request()){
+			
+			$table = $this->input->post('table');
+			$item = $this->input->post('id');
+			$input_name = 'Filedata';
+			$folder = $this->input->post('id');
+			
+			$this->load->library('upload');
+			
+			$config['upload_path'] = $folder.'/mobile_blue/image/';
+			$config['allowed_types'] = '*';
+			$config['max_size']     = '500';
+			$config['max_width'] = '200';
+			$config['max_height'] = '200';
+			$config['overwrite'] = TRUE;
+			
+			$this->load->library('upload');
+			$this->upload->initialize($config);
+			
+			if($this->upload->do_upload($input_name)){
+				echo 'bien';
+			}else{
+								
+				echo $this->upload->display_errors('<div role="alert" class="alert alert-danger">', '</div>');
+			}
+			
+			
+		}else{
+			
+			show_404();
+		}
+
+	}
 }

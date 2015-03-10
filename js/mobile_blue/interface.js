@@ -9,31 +9,57 @@ var LoadButtonShow = {
 };
 
 var ClickActionButton = {
-	
-		
-	
+
         ButtonEditText : function() {
         	
-            $('.buttons_interface').click(ClickActionButton.slideCb);
+            $('.buttons_interface.text').click(ClickActionButton.TextUp);
            
         },
         
         ButtonEditImage : function() {
         	
-            $('.buttons_interface').click(ClickActionButton.slideCb);
+            $('.image').change(ClickActionButton.ImageUp);
+            $('.images').change(ClickActionButton.ImagesUp);
            
         },
 
-        slideCb : function() {
+        ImageUp : function(){
         	
-        				alert('hola'); 
-        		},
+        	var id = $(this).attr('id');
+        	var table = id.split("_");
+        	$('.'+id).empty();
+        	$('.'+id).append('<img src="'+base_url+folder_template+'/image/loading.png" />');
+			alert(id);
+			$('#'+id).uploadify({
+				id:id,
+		        table:table.pop(),
+		       	uploader:'app/up_load_image',		
+			});
+			
+        	/*$.post(
+        		base_url+'app/up_load_image',
+        		{id:id,table:table.pop()},
+        		function(returndata){
+					$('.'+id).html(returndata);
+				}
+		    );*/
+        },
+        
+        ImagesUp : function(){
+        	
+        	alert('imagen');
+        },
+        
+        TextUp : function() {
+        	
+        	alert('text');
+        },
 
 };
 
-$(document).ready(
-	
-	LoadButtonShow.ButtonShow,
-	ClickActionButton.ButtonEditText
-	
-);
+$(window).load(LoadButtonShow.ButtonShow);
+$(window).load(ClickActionButton.ButtonEditImage);
+//$(window).load(ClickActionButton.ButtonEditText);
+
+
+

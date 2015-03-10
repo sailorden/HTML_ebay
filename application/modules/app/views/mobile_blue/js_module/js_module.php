@@ -56,6 +56,7 @@
 
 <?php if ($this->uri->segment(2) == 'html'): ?>
 	
+	<?= link_js('js/mobile_blue/jquery.uploadify.min.js') ?>
 	<?= link_js('js/mobile_blue/interface.js') ?>
 	
 <?php endif ?>	

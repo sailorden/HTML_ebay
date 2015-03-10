@@ -10,8 +10,19 @@
 }
 .buttons_interface:hover{opacity: 1;}
 .buttons_interface.top{
-	
 	top: 40%;
 	left: 50%;
-	
+}
+
+.jfilestyle {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+}
+.jfilestyle.top{
+  height: 36px;
+  left: 50%;
+  top: 40%;
+  width: 36px;
 }
