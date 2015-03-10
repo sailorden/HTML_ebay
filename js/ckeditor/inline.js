@@ -1,64 +1,32 @@
 $(document).ready(function () {
 	
 	CKEDITOR.disableAutoInline = true;
-	var depro;
-	var isEditingEnabled = false;
+	var depro = [];
+	var isEditingEnabled = [];
 		    
 	 $('.toggle').click(function(){
 	 	
 	 	var id = $(this).attr('id');
 	 	var description = document.getElementById( 'dpro_'+id );
 	 	
-	 	if(isEditingEnabled){
-	 		if (depro){
-				depro.destroy();
+	 	if(isEditingEnabled[id]){
+	 		if (depro[id]){
+				depro[id].destroy();
+				depro[id] = null;
 			}
 	 		description.setAttribute( 'contenteditable', false );
-			this.innerHTML = 'Start editing';
-			isEditingEnabled = false;
+			this.innerHTML = '<i class="fa fa-pencil"></i>';
+			isEditingEnabled[id] = false;
 	 	}else{
-	 		if ( !depro ) {
-			 	depro = CKEDITOR.inline( description, {
+	 		if ( !depro[id] ) {
+			 	depro[id] = CKEDITOR.inline( description, {
 					startupFocus: true
 				} );
 			}
 			description.setAttribute( 'contenteditable', true );
-			this.innerHTML = 'Finish editing';
-			isEditingEnabled = true;
+			this.innerHTML = '<i class="fa fa-save"></i>';
+			isEditingEnabled[id] = true;
 		}
 	 });
  });
  
-/*
- $(document).ready(function () {
-	
-	CKEDITOR.disableAutoInline = true;
-	
-	var isEditingEnabled = false, depro;
-	//description = document.getElementById( 'dpro' );
-		    
-	 $('.toggle').click(function(){
-	 	var id = $('.toggle').attr('id');
-	 	
-	 	if(isEditingEnabled){
-	 		if (depro){
-				depro.destroy();
-			}
-			
-			//consloe.log($('#depro_'+id));
-	 		$('#depro_'+id).setAttribute( 'contenteditable', false );
-			this.innerHTML = 'Start editing';
-			isEditingEnabled = false;
-	 	}else{
-	 		if ( !depro ) {
-			 	depro = CKEDITOR.inline( $('#depro_'+id), {
-					startupFocus: true
-				} );
-			}
-			$('#depro_'+id).setAttribute( 'contenteditable', true );
-			this.innerHTML = 'Finish editing';
-			isEditingEnabled = true;
-		}
-	 });
- });
- */

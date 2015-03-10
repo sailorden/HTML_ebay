@@ -12,11 +12,13 @@
 	  <span class="actual"><?= $html->price ?>€</span>
 	</div>
 	
-	<p id="dpro_1" class="dpro quick_desc"><?= $html->description_product ?></p>
-    <button id="1"  class="toggle">Start editing</button>
+	
+	<p id="dpro_description_product" class="dpro quick_desc"><?= $html->description_product ?></p>
+	
+    <div class="inner_toggle"><button id="description_product"  class="toggle"><i class="fa fa-pencil"></i></button></div>
     
     <div class="row">
-    	<div class="col- md-6">
+    	<div class="col-md-6">
     		<img src="<?= base_url('/mobile_blue/image/animado.gif') ?>"/>
     	</div>
     	<div class="col-md-6">

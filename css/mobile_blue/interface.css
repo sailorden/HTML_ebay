@@ -15,3 +15,24 @@
 	left: 50%;
 	
 }
+
+.toggle {
+	
+  background-color: white;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 1.3em;
+  padding: 5px 10px;
+  
+}
+
+.toggle.right{
+	
+  position: absolute;
+  right: -3%;
+  
+}
+
+.inner_toggle{
+	
+}
