@@ -49,6 +49,12 @@ $(document).ready(
  				this.innerHTML = '<i class="fa fa-pencil"></i>';
 	 			text.innerHTML = document.getElementById( 'input_'+id ).value; 
 	 			isEditingEnabled[id] = false;	
+	 			
+	 			$.post(base_url+"app/updateInputText", 
+	 				{id: id, value: text.innerHTML}, 
+	 				function(result){
+			        	
+			    	});
  			}else{
  				
 	 			this.innerHTML = '<i class="fa fa-save"></i>';

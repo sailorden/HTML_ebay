@@ -70,12 +70,14 @@
 		<?php endif ?>
 		
 		
-
+		
 		<title><?= $title; ?></title>
 		
 		<?php $this->load->view('css_module/css_module') ?>
 		
-
+		<script type="text/javascript">
+		    var base_url = '<?php echo base_url(); ?>';
+		</script>
 	</head>
 	
 	
