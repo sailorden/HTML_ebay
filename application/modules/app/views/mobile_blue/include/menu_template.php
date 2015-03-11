@@ -1,7 +1,11 @@
 <?php if ($menu): ?>
 	
 	<div class="menu_box">
-	  	<h3 class="menu_head"><?= $html->name_menu ?></h3>
+	  	<div class="menu_head">
+	  		<button id="name_menu"  class="toggle_text buttons_toggle"><i class="fa fa-pencil"></i></button>
+	  		<h3 id="text_name_menu" class="menu_head"><?= $html->name_menu ?></h3>
+	  		
+  		</div>
 	     <ul class="nav">
 	     	
 	     	<?php foreach ($menu as $key => $value): ?>

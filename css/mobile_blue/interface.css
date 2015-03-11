@@ -31,24 +31,43 @@
 	
 }
 
-.toggle {
-	
+/*.buttons_toggle {
   background-color: white;
   border: 1px solid;
+  opacity: 0.7;
   cursor: pointer;
-  font-size: 1.3em;
+  font-size: 1.3em !important;
   padding: 5px 10px;
-  
+  opacity: 0.7;
 }
 
-.toggle.right{
-	
-  position: absolute;
-  right: -3%;
-  
+.buttons_toggle:hover{opacity: 1;}*/
+
+.reducedfrom .input_toggle {
+  width: 25%;
 }
 
-.inner_toggle{
-	
+.actual .input_toggle {
+  width: 40%;
 }
+
+.menu_head .input_toggle {
+  color: #333;
+}
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+
+.input_toggle {
+  text-transform: uppercase;
+}
+
+.menu_head {
+  background: none repeat scroll 0 0 #005fa8;
+}
+
+.menu_head .input_toggle {
+  position: absolute;
+}
+
+>>>>>>> 064f4ceadcb6c0008056330e5fa604185431eb59

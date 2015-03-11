@@ -60,6 +60,7 @@
 
 	<?= link_js('js/mobile_blue/interface.js') ?>
 	<?= link_js('js/ckeditor/ckeditor.js') ?>
-	<?= link_js('js/ckeditor/inline.js') ?>
+	
+	<?= link_js('js/mobile_blue/inline.js') ?>
 	
 <?php endif ?>	

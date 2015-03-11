@@ -1,8 +1,11 @@
 <?php
-class Mobile_blue_model extends CI_Model{
-
+class Mobile_blue_model extends C_Model{
+	
+	
+	
 	public function __construct(){
     	parent::__construct();
+		require 'clone_template_model.php';
   	}
 	
 	public function get_html($id_template, $id_html){
