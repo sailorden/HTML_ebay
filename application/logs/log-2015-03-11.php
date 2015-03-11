@@ -253,3 +253,11 @@ ERROR - 2015-03-11 12:43:21 --> 404 Page Not Found: css/mobile_blue/images/loadi
 ERROR - 2015-03-11 12:43:21 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
 ERROR - 2015-03-11 12:43:21 --> Severity: Error --> Call to undefined function base_url() C:\wamp\www\HTML_ebay\application\views\errors\html\error_db.php 13
 ERROR - 2015-03-11 12:43:21 --> Severity: Error --> Call to undefined function base_url() C:\wamp\www\HTML_ebay\application\views\errors\html\error_db.php 13
+ERROR - 2015-03-11 12:51:37 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-11 12:51:37 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-11 12:51:37 --> Severity: Error --> Call to undefined function base_url() C:\wamp\www\HTML_ebay\application\views\errors\html\error_db.php 13
+ERROR - 2015-03-11 12:51:37 --> Severity: Error --> Call to undefined function base_url() C:\wamp\www\HTML_ebay\application\views\errors\html\error_db.php 13
+ERROR - 2015-03-11 12:52:02 --> 404 Page Not Found: css/mobile_blue/images/hint.gif
+ERROR - 2015-03-11 12:52:02 --> 404 Page Not Found: css/mobile_blue/images/loading.gif
+ERROR - 2015-03-11 12:52:02 --> Severity: Error --> Call to undefined function base_url() C:\wamp\www\HTML_ebay\application\views\errors\html\error_db.php 13
+ERROR - 2015-03-11 12:52:02 --> Severity: Error --> Call to undefined function base_url() C:\wamp\www\HTML_ebay\application\views\errors\html\error_db.php 13
