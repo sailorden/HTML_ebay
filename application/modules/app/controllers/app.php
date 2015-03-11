@@ -83,6 +83,10 @@ class App  extends MX_Controller {
 			$data['view'] = url_title($this->App_model->get_template($id), 'underscore').'/'.url_title($this->App_model->get_template($id), 'underscore');
 			
 			$data['folder_template'] = url_title($this->App_model->get_template($id), 'underscore');
+			
+			$data['id_html'] = $id_html;
+			
+			$data['id_template'] = $id;
 				
 			$data['robots'] = 'noindex, nofollow';
 			
@@ -108,7 +112,25 @@ class App  extends MX_Controller {
 		
  	}
 
- 	public function updateInputText(){
+ 	public function update_input_text($id, $id_html){
+ 		
+		if($this->input->is_ajax_request()){
+			
+			$table = $this->input->post('table');
+			$item = $this->input->post('id');
+			$data[$item] = $this->input->post('value');
+			
+			
+			$this->load->model(url_title($this->App_model->get_template($id), 'underscore').'_model','html_model');
+			
+			$this->html_model->edit_data_html($id_html, $data);
+			
+			echo $data[$item];
+			
+		}else{
+			
+			show_404();
+		}
  		
 
  	}
