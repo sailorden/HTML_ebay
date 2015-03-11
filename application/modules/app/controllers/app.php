@@ -69,57 +69,43 @@ class App  extends MX_Controller {
 			redirect('app/html/'.$id.'/'.$html);
 
 		}else{
-			
-			$this->load->model(url_title($this->App_model->get_template($id), 'underscore').'_model','html_model');
 				
 			$data['title'] = "HTML ebay";
 				
-			$data['keywords'] = url_title($this->App_model->get_template($id), 'underscore').'_model';
+			$data['keywords'] = "";
 	
 			$data['description'] = "";
 				
 			$data['reference'] = 'APP';
 	
 			$data['view'] = url_title($this->App_model->get_template($id), 'underscore').'/'.url_title($this->App_model->get_template($id), 'underscore');
-			
-			$data['folder_template'] = url_title($this->App_model->get_template($id), 'underscore');
-				
+
 			$data['robots'] = 'noindex, nofollow';
 			
 			$data['js'] =  $this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/js_module/js_module','',TRUE);
 			
 			$data['template'] = $this->App_model->get_template($id);
+			
+			$data['folder_template'] = url_title($this->App_model->get_template($id), 'underscore');
+			
+			$data['id_html'] = $id_html;
 		
-			$data['html'] = $this->html_model->get_html($id,$id_html);
+			$data['html'] = $this->App_model->get_html($id,$id_html);
 			
-			$data['style'] = $this->html_model->get_style_html($data['html']->id_html);
+			$data['style'] = $this->App_model->get_style_html($data['html']->id_html);
 			
-			$data['social'] = $this->html_model->get_social_html($data['html']->id_html);
+			$data['social'] = $this->App_model->get_social_html($data['html']->id_html);
 			
-			$data['menu'] = $this->html_model->get_menu_html($data['html']->id_html);
+			$data['menu'] = $this->App_model->get_menu_html($data['html']->id_html);
 			
-			$data['tabs'] = $this->html_model->get_tabs_html($data['html']->id_html);
+			$data['tabs'] = $this->App_model->get_tabs_html($data['html']->id_html);
 			
-			$data['carrusel'] = $this->html_model->get_carrusel_html($data['html']->id_html);
+			$data['carrusel'] = $this->App_model->get_carrusel_html($data['html']->id_html);
 			
 			$this->load->view('layout', $data);
 		
 		}
 		
- 	}
-
- 	public function updateInputText(){
- 		
-		/*$this->load->helper('form');
- 		
-		if ($this->input->post('id')){
-			
-			
-			
-		}else{
-				
-			show_404();
-		}*/
  	}
 	
 	public function up_load_image(){
@@ -128,13 +114,16 @@ class App  extends MX_Controller {
 			
 			$table = $this->input->post('table');
 			$item = $this->input->post('id');
+			$id_html = $this->input->post('id_html');
+			$max_width = $this->input->post('max_width');
+			$max_height = $this->input->post('max_height');
 			$folder_template = $this->input->post('folder_template');
 			
 			$config['upload_path'] = $folder_template.'/top/';
 			$config['allowed_types'] = '*';
 			$config['max_size']     = '500';
-			$config['max_width'] = '200';
-			$config['max_height'] = '200';
+			$config['max_width'] = $max_width;
+			$config['max_height'] = $max_height;
 			$config['overwrite'] = FALSE;
 			
 			$this->load->library('upload');
@@ -142,8 +131,17 @@ class App  extends MX_Controller {
 			
 			if($this->upload->do_upload('file')){
 				
-				$this->load->model(url_title($this->App_model->get_template($id), 'underscore').'_model','html_model');
-				
+				$this->load->model('Ajax_model');
+				$data_image = $this->upload->data();
+				if($this->Ajax_model->get_image($item,$data_image['file_name'],$table,$id_html)){
+					
+					echo json_encode($data_image['file_name']);
+					
+				}else{
+					
+					echo json_encode('false');
+				}
+
 			}else{
 				
 				echo $folder_template.'/top/';
