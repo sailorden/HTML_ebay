@@ -1,10 +1,8 @@
 <?php if ($html->img_top_1_html): ?>
 	
 	<div class="col-md-4 header-top top_1">
-		<form>
-			<input name="img_top_1_html" id="img_top_1_html" type="file" class="jfilestyle top image" />
-			<div style="display: none;" class="buttons_interface image top img_top_1_html"><i class="fa fa-pencil"></i></div>
-		</form>
+		<input name="img_top_1_html" id="img_top_1_html" type="file" class="jfilestyle top image"/>
+		<div style="display: none;" class="buttons_interface image top img_top_1_html"><i class="fa fa-pencil"></i></div>
 		<a href=""><img src="<?= base_url('/mobile_blue/top/'.$html->img_top_1_html) ?>" alt="<?= alt($html->img_top_1_html) ?>"/></a>
 	</div>  
 	
@@ -31,5 +29,6 @@
 		</form>
 		<a href=""><img src="<?= base_url('/mobile_blue/top/'.$html->img_top_3_html) ?>" alt="<?= alt($html->img_top_3_html) ?>"/></a>
 	</div>  
-	
 <?php endif ?>
+
+<input id="folder_template" type="hidden" value="<?= $folder_template ?>"/>

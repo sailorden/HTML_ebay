@@ -23,19 +23,35 @@ var ClickActionButton = {
            
         },
 
-        ImageUp : function(){
+        ImageUp : function(event){
         	
         	var id = $(this).attr('id');
+        	var file = document.getElementById(id).files[0];
         	var table = id.split("_");
+        	var folder_template = $('#folder_template').val();
         	$('.'+id).empty();
         	$('.'+id).append('<img src="'+base_url+folder_template+'/image/loading.png" />');
-			alert(id);
-			$('#'+id).uploadify({
-				id:id,
-		        table:table.pop(),
-		       	uploader:'app/up_load_image',		
+        	
+			var data = new FormData();
+			data.append('file',file);
+			data.append('id',id);
+			data.append('table',table.pop());
+			data.append('folder_template',folder_template);
+	
+			$.ajax({
+				
+				url: base_url+'app/up_load_image',
+				type:'POST',
+				contentType:false,
+				data:data,
+				processData:false,
+				cache:false
+				
+				}).done(function(data) {
+					
+					
 			});
-			
+        	
         	/*$.post(
         		base_url+'app/up_load_image',
         		{id:id,table:table.pop()},

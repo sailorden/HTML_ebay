@@ -12,6 +12,7 @@
 .buttons_interface.top{
 	top: 40%;
 	left: 50%;
+<<<<<<< HEAD
 }
 
 .jfilestyle {
@@ -26,3 +27,28 @@
   top: 40%;
   width: 36px;
 }
+=======
+	
+}
+
+.toggle {
+	
+  background-color: white;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 1.3em;
+  padding: 5px 10px;
+  
+}
+
+.toggle.right{
+	
+  position: absolute;
+  right: -3%;
+  
+}
+
+.inner_toggle{
+	
+}
+>>>>>>> origin/master

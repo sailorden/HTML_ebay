@@ -69,10 +69,12 @@ class App  extends MX_Controller {
 			redirect('app/html/'.$id.'/'.$html);
 
 		}else{
+			
+			$this->load->model(url_title($this->App_model->get_template($id), 'underscore').'_model','html_model');
 				
 			$data['title'] = "HTML ebay";
 				
-			$data['keywords'] = "";
+			$data['keywords'] = url_title($this->App_model->get_template($id), 'underscore').'_model';
 	
 			$data['description'] = "";
 				
@@ -88,17 +90,17 @@ class App  extends MX_Controller {
 			
 			$data['template'] = $this->App_model->get_template($id);
 		
-			$data['html'] = $this->App_model->get_html($id,$id_html);
+			$data['html'] = $this->html_model->get_html($id,$id_html);
 			
-			$data['style'] = $this->App_model->get_style_html($data['html']->id_html);
+			$data['style'] = $this->html_model->get_style_html($data['html']->id_html);
 			
-			$data['social'] = $this->App_model->get_social_html($data['html']->id_html);
+			$data['social'] = $this->html_model->get_social_html($data['html']->id_html);
 			
-			$data['menu'] = $this->App_model->get_menu_html($data['html']->id_html);
+			$data['menu'] = $this->html_model->get_menu_html($data['html']->id_html);
 			
-			$data['tabs'] = $this->App_model->get_tabs_html($data['html']->id_html);
+			$data['tabs'] = $this->html_model->get_tabs_html($data['html']->id_html);
 			
-			$data['carrusel'] = $this->App_model->get_carrusel_html($data['html']->id_html);
+			$data['carrusel'] = $this->html_model->get_carrusel_html($data['html']->id_html);
 			
 			$this->load->view('layout', $data);
 		
@@ -112,25 +114,25 @@ class App  extends MX_Controller {
 			
 			$table = $this->input->post('table');
 			$item = $this->input->post('id');
-			$input_name = 'Filedata';
-			$folder = $this->input->post('id');
+			$folder_template = $this->input->post('folder_template');
 			
-			$this->load->library('upload');
-			
-			$config['upload_path'] = $folder.'/mobile_blue/image/';
+			$config['upload_path'] = $folder_template.'/top/';
 			$config['allowed_types'] = '*';
 			$config['max_size']     = '500';
 			$config['max_width'] = '200';
 			$config['max_height'] = '200';
-			$config['overwrite'] = TRUE;
+			$config['overwrite'] = FALSE;
 			
 			$this->load->library('upload');
 			$this->upload->initialize($config);
 			
-			if($this->upload->do_upload($input_name)){
-				echo 'bien';
+			if($this->upload->do_upload('file')){
+				
+				$this->load->model(url_title($this->App_model->get_template($id), 'underscore').'_model','html_model');
+				
 			}else{
-								
+				
+				echo $folder_template.'/top/';
 				echo $this->upload->display_errors('<div role="alert" class="alert alert-danger">', '</div>');
 			}
 			

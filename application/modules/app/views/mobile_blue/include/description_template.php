@@ -12,7 +12,10 @@
 	  <span class="actual"><?= $html->price ?>€</span>
 	</div>
 	
-	<p class="quick_desc"><?= $html->description_product ?></p>
+	
+	<p id="dpro_description_product" class="dpro quick_desc"><?= $html->description_product ?></p>
+	
+    <div class="inner_toggle"><button id="description_product"  class="toggle"><i class="fa fa-pencil"></i></button></div>
     
     <div class="row">
     	<div class="col-md-6">
