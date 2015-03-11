@@ -107,14 +107,6 @@ class App  extends MX_Controller {
 		}
 		
  	}
-<<<<<<< HEAD
-=======
-
- 	public function updateInputText(){
- 		
-
- 	}
->>>>>>> origin/master
 	
 	public function up_load_image(){
 		
