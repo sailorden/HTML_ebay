@@ -3,6 +3,7 @@ var LoadButtonShow = {
 	ButtonShow : function() {
         	
         $('.buttons_interface').show();
+        $('input').show();
            
     },
 	
@@ -30,6 +31,7 @@ var ClickActionButton = {
         	var file = document.getElementById(id).files[0];
         	var table = id.split("_");
         	var folder_template = $('#folder_template').val();
+        	var folder_image = $('#folder_image').val();
         	var id_html = $('#id_html').val();
         	var src = $('img.'+id).attr('src').split("/");
         	var max_width = $('img.'+id).attr('width');
@@ -70,13 +72,6 @@ var ClickActionButton = {
 						
 			});
         	
-        	/*$.post(
-        		base_url+'app/up_load_image',
-        		{id:id,table:table.pop()},
-        		function(returndata){
-					$('.'+id).html(returndata);
-				}
-		    );*/
         },
         
         ImagesUp : function(){

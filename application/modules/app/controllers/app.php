@@ -144,8 +144,9 @@ class App  extends MX_Controller {
 			$max_width = $this->input->post('max_width');
 			$max_height = $this->input->post('max_height');
 			$folder_template = $this->input->post('folder_template');
+			$folder_image = $this->input->post('folder_image');
 			
-			$config['upload_path'] = $folder_template.'/top/';
+			$config['upload_path'] = $folder_template.'/'.$folder_image.'/';
 			$config['allowed_types'] = '*';
 			$config['max_size']     = '500';
 			$config['max_width'] = $max_width;
