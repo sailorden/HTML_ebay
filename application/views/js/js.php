@@ -4,6 +4,8 @@
 <?= link_js('var folder_template ="'.$folder_template.'";',$index_page = FALSE) ?><!--folder template for js-->
 <?= link_js('var id_html ="'.$id_html.'";',$index_page = FALSE) ?><!--folder template for js-->
 <?= link_js('var id_template ="'.$id_template.'";',$index_page = FALSE) ?><!--folder template for js-->
+<?= link_js('var isEditingEnabled = [];',$index_page = FALSE) ?><!--folder template for js-->
+<?= link_js('var depro = [];',$index_page = FALSE) ?><!--folder template for js-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <?= link_js('js/prefixfree.min.js') ?>
 
