@@ -110,16 +110,7 @@ class App  extends MX_Controller {
 
  	public function updateInputText(){
  		
-		/*$this->load->helper('form');
- 		
-		if ($this->input->post('id')){
-			
-			
-			
-		}else{
-				
-			show_404();
-		}*/
+
  	}
 	
 	public function up_load_image(){

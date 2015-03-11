@@ -51,9 +51,9 @@ $(document).ready(
 	 			isEditingEnabled[id] = false;	
 	 			
 	 			$.post(base_url+"app/updateInputText", 
-	 				{id: id, value: text.innerHTML, table: "html"}, 
+	 				{field: id, value: text.innerHTML, table: "html"}, 
 	 				function(result){
-			        	
+	 					
 			    	});
  			}else{
  				
