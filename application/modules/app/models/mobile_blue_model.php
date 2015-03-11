@@ -107,19 +107,6 @@ class Mobile_blue_model extends CI_Model{
 		}	
    }
 	
-	public function edit_data_html($id_html,$data){
-			
-		$this->db->trans_start();
-		$this->db->where('id_html', $id_html);
-		$this->db->update('html', $data);
-		$this->db->trans_complete();
-		
-		if ($this->db->trans_status() === FALSE):
-			show_error('error_500');
-		endif;
-   }
-	
-	
    
 } 
 

@@ -120,9 +120,9 @@ class App  extends MX_Controller {
 			$item = $this->input->post('id');
 			$data[$item] = $this->input->post('value');
 		
-			$this->load->model(url_title($this->App_model->get_template($id), 'underscore').'_model','html_model');
+			$this->load->model('Ajax_model');
 			
-			$this->html_model->edit_data_html($id_html, $data);
+			$this->Ajax_model->set_text($data, $table, $id_html);
 			
 			echo $data[$item];
 			
@@ -131,7 +131,6 @@ class App  extends MX_Controller {
 			show_404();
 		}
  		
-
  	}
 
 	

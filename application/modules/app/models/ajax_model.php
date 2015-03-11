@@ -19,9 +19,25 @@ class Ajax_model extends CI_Model{
 		}else{
 			
 			return TRUE;
-		}
-				
+		}		
 	
+   }
+	
+	public function set_text($data, $table, $id_html){
+			
+		$this->db->trans_start();
+		$this->db->where('id_html', $id_html);
+		$this->db->update($table, $data);
+		$this->db->trans_complete();
+		
+		if ($this->db->trans_status() === FALSE){
+			
+			return FALSE;
+			
+		}else{
+			
+			return TRUE;
+		}	
    }
 
 } 
