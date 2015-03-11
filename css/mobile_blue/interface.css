@@ -12,7 +12,6 @@
 .buttons_interface.top{
 	top: 40%;
 	left: 50%;
-<<<<<<< HEAD
 }
 
 .jfilestyle {
@@ -27,9 +26,8 @@
   top: 40%;
   width: 36px;
 }
-=======
-	
-}
+
+
 
 /*.buttons_toggle {
   background-color: white;
@@ -43,20 +41,17 @@
 
 .buttons_toggle:hover{opacity: 1;}*/
 
-.reducedfrom .input_toggle {
-  width: 25%;
+span.reducedfrom .input_toggle {
+  width: 25% !important;
 }
 
-.actual .input_toggle {
-  width: 40%;
+span.actual .input_toggle {
+  width: 38%;
 }
 
 .menu_head .input_toggle {
   color: #333;
 }
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
 
 .input_toggle {
   text-transform: uppercase;
@@ -70,4 +65,3 @@
   position: absolute;
 }
 
->>>>>>> 064f4ceadcb6c0008056330e5fa604185431eb59
