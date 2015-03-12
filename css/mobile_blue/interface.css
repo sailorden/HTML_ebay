@@ -4,8 +4,10 @@
 	border: 1px solid #3d3e42;
 	border-radius: 4px;
 	cursor: pointer;
-	font-size: 1.2em;
-	padding: 3px 6px;
+	/*font-size: 1.2em;
+	padding: 3px 6px;*/
+	font-size: 21px;
+	padding: 3px 8px;
 	position: absolute;
 	background: #f2f2f2; /* Old browsers */
 	background: -moz-linear-gradient(top,  #f2f2f2 0%, #d6d6d6 36%, #c9c9c9 54%, #999999 100%); /* FF3.6+ */
@@ -53,26 +55,12 @@
   top: 74%;
 }
 
-
-
-/*.buttons_toggle {
-  background-color: white;
-  border: 1px solid;
-  opacity: 0.7;
-  cursor: pointer;
-  font-size: 1.3em !important;
-  padding: 5px 10px;
-  opacity: 0.7;
-}
-
-.buttons_toggle:hover{opacity: 1;}*/
-
 span.reducedfrom .input_toggle {
   width: 25% !important;
 }
 
 span.actual .input_toggle {
-  width: 38%;
+  width: 37%;
 }
 
 .menu_head .input_toggle {
@@ -81,13 +69,40 @@ span.actual .input_toggle {
 
 .input_toggle {
   text-transform: uppercase;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border:none;
 }
 
 .menu_head {
   background: none repeat scroll 0 0 #005fa8;
+  height: 75px;
 }
 
 .menu_head .input_toggle {
   position: absolute;
 }
+
+#name_menu.buttons_interface {
+  left: 78%;
+  top: 2%;
+}
+
+#name_product.buttons_interface {
+  right: 0px;
+  top: 5.2%;
+}
+
+.price_single .buttons_interface {
+	position: relative;
+}
+
+#input_name_product {
+  width: 92%;
+}
+
+#input_name_menu {
+  width: 55%;
+  color: #fff;
+}
+
 
