@@ -20,8 +20,8 @@ var ClickActionButton = {
 
         ButtonEditText : function() {
         	
-            $('.buttons_interface_text').click(ClickActionButton.TextUp);
-            $('.buttons_interface_textarea').click(ClickActionButton.TextAreaUp);
+            $('.buttons_interface.text').click(ClickActionButton.TextUp);
+            $('.buttons_interface.textarea').click(ClickActionButton.TextAreaUp);
            
         },
         
@@ -131,6 +131,13 @@ var ClickActionButton = {
 	 			this.innerHTML = '<i class="fa fa-save"></i>';
 	 			text.innerHTML = '<input type="text" class="input_toggle" id="input_'+id+'" value="'+ inner +'"/>'; 	
 	 			isEditingEnabled[id] = true;
+	 			
+	 			var input = document.getElementById( 'input_'+id );
+	 			var tmpStr = input.value;
+	 			
+				input.focus();
+				input.value = '';
+				input.value = tmpStr;
  			}
 
        },
