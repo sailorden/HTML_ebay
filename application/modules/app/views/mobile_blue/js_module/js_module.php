@@ -1,5 +1,5 @@
 <?= link_js('js/mobile_blue/jquery.min.js') ?><!--internal JS-->
-
+<?= link_js('js/jquery-ui-1.11.4.custom/jquery-ui.js') ?>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <?= link_js('js/mobile_blue/jquery.easydropdown.js') ?><!--internal JS-->

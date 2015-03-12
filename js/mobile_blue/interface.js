@@ -87,15 +87,27 @@ var ClickActionButton = {
 				
 				}).done(function(data) {
 					
-					if(data == 'false'){
-						
-						//algo error
-						
-					}else{
+					var result = JSON.parse(data).split('.');
+					
+					if(result[1] == "jpg"){
 						
 						$('.'+id).empty();
 						$('.'+id).append('<i class="fa fa-camera"></i>');
 						$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
+	
+					}else{
+
+						$(function() {
+							$('body').append(JSON.parse(data));
+							$( "#dialog-message" ).dialog({
+								modal: true,
+								buttons: {
+									Ok: function() {
+										$( this ).dialog( "close" );
+									}
+								}
+							});
+						});
 					}
 						
 			});

@@ -171,8 +171,7 @@ class App  extends MX_Controller {
 
 			}else{
 				
-				echo $folder_template.'/top/';
-				echo $this->upload->display_errors('<div role="alert" class="alert alert-danger">', '</div>');
+				echo json_encode($this->upload->display_errors('<div id="dialog-message" title="Download complete"><p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>', '</p></div>'));
 			}
 			
 			
