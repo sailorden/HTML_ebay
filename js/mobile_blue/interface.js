@@ -2,7 +2,7 @@ var LoadButtonShow = {
 	
 	ButtonShow : function() {
         	
-        $('.buttons_interface').show();
+        $('.buttons_interface').show(); 
         $('input').show();
            
     },
@@ -10,6 +10,13 @@ var LoadButtonShow = {
 };
 
 var ClickActionButton = {
+	
+		HideShowButtons : function() {
+        	
+            $('#eye').click(ClickActionButton.ButtonsHide);
+            $('#eye-slash').live('click', ClickActionButton.ButtonsShow);
+           
+        },
 
         ButtonEditText : function() {
         	
@@ -22,6 +29,26 @@ var ClickActionButton = {
         	
             $('.image').change(ClickActionButton.ImageUp);
             $('.images').change(ClickActionButton.ImagesUp);
+           
+        },
+        
+        ButtonsHide : function() {
+        	
+            $('.buttons_interface').hide(); 
+        	$('input').hide();
+        	$('#eye').empty();
+        	$('#eye').append('<i class="fa fa-eye-slash"></i>');
+        	$('#eye').attr('id','eye-slash');
+           
+        },
+        
+        ButtonsShow : function() {
+        	
+            $('.buttons_interface').show();
+        	$('input').show();
+        	$('#eye-slash').empty();
+        	$('#eye-slash').append('<i class="fa fa-eye"></i>');
+        	$('#eye-slash').attr('id','eye');
            
         },
 
@@ -149,6 +176,7 @@ var ClickActionButton = {
 $(window).load(LoadButtonShow.ButtonShow);
 $(window).load(ClickActionButton.ButtonEditImage);
 $(window).load(ClickActionButton.ButtonEditText);
+$(window).load(ClickActionButton.HideShowButtons);
 
 
 

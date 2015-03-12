@@ -55,7 +55,7 @@
 			
 			<li><?=  anchor('login/logout', '<i class="fa fa-paint-brush"></i>','title="Estilo" class="icons"') ?></li>
 			
-			<li><?=  anchor('login/logout', '<i class="fa fa-eraser"></i>','title="Limpiar" class="icons"') ?></li>
+			<li><a id="eye" class="icons" title="Previsualizar" href="#"><i class="fa fa-eye"></i></a></li>
 		
 		<?php endif ?>
 
