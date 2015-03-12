@@ -56,7 +56,7 @@ var ClickActionButton = {
 
         	var id = $(this).attr('id');
         	var file = document.getElementById(id).files[0];
-        	var table = $(this).attr('hspace');;
+        	var table = $(this).attr('hspace');
         	var folder_template = $('#folder_template').val();
         	var folder_image = $(this).attr('dir');
         	var id_html = $('#id_html').val();
@@ -133,10 +133,12 @@ var ClickActionButton = {
  				this.innerHTML = '<i class="fa fa-pencil"></i>';
 	 			text.innerHTML = document.getElementById( 'input_'+id ).value; 
 	 			isEditingEnabled[id] = false;	
+	 			
+	 			var table = $(this).attr('hspace');
 				
 				$.post(
         		base_url+'app/update_input_text/'+id_template+'/'+id_html,
-        		{id:id,table:"html",value: text.innerHTML,id_html: id_html},
+        		{id:id,table: table,value: text.innerHTML,id_html: id_html},
         		function(returndata){
 					text.innerHTML = returndata;
 				}
@@ -174,9 +176,11 @@ var ClickActionButton = {
 				this.innerHTML = '<i class="fa fa-pencil"></i>';
 				isEditingEnabled[id] = false;
 				
+				var table = $(this).attr('hspace');
+				
 				$.post(
         		base_url+'app/update_input_text/'+id_template+'/'+id_html,
-        		{id:id,table:"html",value: description.innerHTML,id_html: id_html},
+        		{id:id,table: table,value: description.innerHTML,id_html: id_html},
         		function(returndata){
 					description.innerHTML = returndata;
 				}
