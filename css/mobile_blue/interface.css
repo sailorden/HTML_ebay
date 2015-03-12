@@ -110,4 +110,18 @@ span.actual .input_toggle {
   color: #fff;
 }
 
+.resp-tabs-list li:not(.resp-tab-active) .buttons_interface.text{
+	display: none !important;
+}
+
+#name_tab.buttons_interface {
+  margin:  -13px 0 -9px 5px;
+  position: relative;
+  color: #333;
+}
+
+.resp-tab-item.plus {
+	background: #ffffff;
+	padding-left: 5px;
+}
 

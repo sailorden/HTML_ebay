@@ -117,12 +117,13 @@ class App  extends MX_Controller {
 		if($this->input->is_ajax_request()){
 			
 			$table = $this->input->post('table');
+			$id_table = $this->input->post('id_table');
 			$item = $this->input->post('id');
 			$data[$item] = $this->input->post('value');
 		
 			$this->load->model('Ajax_model');
 			
-			$this->Ajax_model->set_text($data, $table, $id_html);
+			$this->Ajax_model->set_text($data, $table, $id_html, $id_table);
 			
 			echo $data[$item];
 			
