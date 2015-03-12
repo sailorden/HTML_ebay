@@ -19,9 +19,9 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#999999',GradientType=0 ); /* IE6-9 */
 
 }
-.buttons_interface.top{
-	top: 76%;
-	left: 89%;
+.buttons_interface.top {
+  left: 87%;
+  top: 73%;
 }
 .buttons_interface.banner {
   	left: 84%;
@@ -41,8 +41,8 @@
   z-index: 1;
 }
 .jfilestyle.top {
-  left: 89%;
-  top: 76%;
+  left: 87%;
+  top: 73%;
 }
 
 .jfilestyle.banner {
@@ -94,6 +94,11 @@ span.actual .input_toggle {
 
 .price_single .buttons_interface {
 	position: relative;
+}
+
+.buttons_interface.textarea {
+  margin: 8px 0;
+  position: relative;
 }
 
 #input_name_product {
