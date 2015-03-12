@@ -26,12 +26,12 @@ var ClickActionButton = {
         },
 
         ImageUp : function(event){
-        	
+
         	var id = $(this).attr('id');
         	var file = document.getElementById(id).files[0];
-        	var table = id.split("_");
+        	var table = $(this).attr('hspace');;
         	var folder_template = $('#folder_template').val();
-        	var folder_image = $('#folder_image').val();
+        	var folder_image = $(this).attr('dir');
         	var id_html = $('#id_html').val();
         	var src = $('img.'+id).attr('src').split("/");
         	var max_width = $('img.'+id).attr('width');
@@ -42,8 +42,9 @@ var ClickActionButton = {
 			var data = new FormData();
 			data.append('file',file);
 			data.append('id',id);
-			data.append('table',table.pop());
+			data.append('table',table);
 			data.append('folder_template',folder_template);
+			data.append('folder_image',folder_image);
 			data.append('id_html',id_html);
 			data.append('max_width',max_width);
 			data.append('max_height',max_height);

@@ -21,18 +21,36 @@
 	top: 76%;
 	left: 89%;
 }
-
+.buttons_interface.banner {
+  	left: 84%;
+  	top: 86%;
+}
+.buttons_interface.banner_2.banner {top: 79%;}
+.buttons_interface.shipping {
+  	left: 85%;
+  	top: 74%;
+}
 .jfilestyle {
   cursor: pointer;
   opacity: 0;
   position: absolute;
+  width: 36px;
+  height: 36px;
   z-index: 1;
 }
 .jfilestyle.top {
-  height: 36px;
   left: 89%;
   top: 76%;
-  width: 36px;
+}
+
+.jfilestyle.banner {
+  left: 83%;
+  top: 86%;
+}
+.jfilestyle.banner_2.banner {top: 79%;}
+.jfilestyle.shipping {
+  left: 85%;
+  top: 74%;
 }
 
 

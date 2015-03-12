@@ -134,7 +134,7 @@ class App  extends MX_Controller {
  	}
 
 	
-	public function up_load_image(){
+	public function up_load_image($id, $id_html){
 		
 		if($this->input->is_ajax_request()){
 			
