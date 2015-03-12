@@ -135,10 +135,11 @@ var ClickActionButton = {
 	 			isEditingEnabled[id] = false;	
 	 			
 	 			var table = $(this).attr('hspace');
+	 			var id_table = $(this).attr('dir');
 				
 				$.post(
         		base_url+'app/update_input_text/'+id_template+'/'+id_html,
-        		{id:id,table: table,value: text.innerHTML,id_html: id_html},
+        		{id:id,table: table, id_table: id_table, value: text.innerHTML,id_html: id_html},
         		function(returndata){
 					text.innerHTML = returndata;
 				}
@@ -177,10 +178,11 @@ var ClickActionButton = {
 				isEditingEnabled[id] = false;
 				
 				var table = $(this).attr('hspace');
+				var id_table = $(this).attr('dir');
 				
 				$.post(
         		base_url+'app/update_input_text/'+id_template+'/'+id_html,
-        		{id:id,table: table,value: description.innerHTML,id_html: id_html},
+        		{id:id,table: table, id_table: id_table, value: description.innerHTML,id_html: id_html},
         		function(returndata){
 					description.innerHTML = returndata;
 				}

@@ -23,10 +23,16 @@ class Ajax_model extends CI_Model{
 	
    }
 	
-	public function set_text($data, $table, $id_html){
+	public function set_text($data, $table, $id_html, $id_table = FALSE){
 			
 		$this->db->trans_start();
 		$this->db->where('id_html', $id_html);
+		
+		if($id_table){
+			$aux = explode('.',$id_table);
+			$this->db->where($aux[0], $aux[1]);
+		}
+		
 		$this->db->update($table, $data);
 		$this->db->trans_complete();
 		
