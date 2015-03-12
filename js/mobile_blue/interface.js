@@ -97,7 +97,10 @@ var ClickActionButton = {
 	
 					}else{
 
-						$(function() {
+						$(function(){
+							
+							$('.'+id).empty();
+							$('.'+id).append('<i class="fa fa-camera"></i>');
 							$('body').append(JSON.parse(data));
 							$( "#dialog-message" ).dialog({
 								modal: true,
@@ -107,6 +110,7 @@ var ClickActionButton = {
 									}
 								}
 							});
+							
 						});
 					}
 						

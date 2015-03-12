@@ -166,12 +166,12 @@ class App  extends MX_Controller {
 					
 				}else{
 					
-					echo json_encode('false');
+					echo json_encode('<div id="dialog-message" title="¡Ups! parece que tenemos un error"><p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>Problemas al guardar la imagen en la base de datos.', '</p></div>');
 				}
 
 			}else{
 				
-				echo json_encode($this->upload->display_errors('<div id="dialog-message" title="Download complete"><p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>', '</p></div>'));
+				echo json_encode($this->upload->display_errors('<div id="dialog-message" title="¡Ups! parece que tenemos un error"><p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>', '</p></div>'));
 			}
 			
 			
@@ -181,4 +181,5 @@ class App  extends MX_Controller {
 		}
 
 	}
+
 }
