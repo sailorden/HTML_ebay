@@ -38,7 +38,8 @@
 	 
 	 <?php endif ?>
 	 
-	 <div style="background-color: white;font-size: 1.3em;left: 179px;opacity: 0.7;padding: 5px 10px;position: absolute;top: -9%; cursor: pointer;" class="floating_buttons"><i class="fa fa-pencil"></i></div>
+	 <div dir="social" id="modal_form" style="display: none;" class="buttons_interface soacial"><i class="fa fa-pencil"></i></div>
 	<div class="clearfix"></div>
 </div>
 
+<?php $this->load->view('include/modal_form/modal_social') ?>

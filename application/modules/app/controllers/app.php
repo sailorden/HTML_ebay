@@ -148,7 +148,7 @@ class App  extends MX_Controller {
 			$folder_image = $this->input->post('folder_image');
 			
 			$config['upload_path'] = $folder_template.'/'.$folder_image.'/';
-			$config['allowed_types'] = '*';
+			$config['allowed_types'] = 'jpg|jpeg';
 			$config['max_size']     = '500';
 			$config['max_width'] = $max_width;
 			$config['max_height'] = $max_height;

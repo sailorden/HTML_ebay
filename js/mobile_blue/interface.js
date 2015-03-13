@@ -32,6 +32,12 @@ var ClickActionButton = {
            
         },
         
+        ButtonModalForm : function() {
+        	
+            $('#modal_form').click(ClickActionButton.ModalForm);
+           
+        },
+        
         ButtonsHide : function() {
         	
             $('.buttons_interface').hide(); 
@@ -52,7 +58,7 @@ var ClickActionButton = {
            
         },
 
-        ImageUp : function(event){
+        ImageUp : function(){
 
         	var id = $(this).attr('id');
         	var file = document.getElementById(id).files[0];
@@ -89,7 +95,7 @@ var ClickActionButton = {
 					
 					var result = JSON.parse(data).split('.');
 					
-					if(result[1] == "jpg"){
+					if(result[1] == "jpg" || result[1] == "jpeg"){
 						
 						$('.'+id).empty();
 						$('.'+id).append('<i class="fa fa-camera"></i>');
@@ -121,6 +127,23 @@ var ClickActionButton = {
         ImagesUp : function(){
         	
         	alert('imagen');
+        },
+        
+        ModalForm : function(){
+        	
+        	var dir = $(this).attr('dir'); 
+        	
+        	$(function(){
+						
+				$('#form-'+dir).show();
+				$('#form-'+dir).dialog({
+					modal: true,
+					width: 600,
+					height: 700,
+					resizable: false,
+				});
+				
+			});
         },
         
         TextUp : function() {
@@ -206,6 +229,7 @@ $(window).load(LoadButtonShow.ButtonShow);
 $(window).load(ClickActionButton.ButtonEditImage);
 $(window).load(ClickActionButton.ButtonEditText);
 $(window).load(ClickActionButton.HideShowButtons);
+$(window).load(ClickActionButton.ButtonModalForm);
 
 
 
