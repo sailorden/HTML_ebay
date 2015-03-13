@@ -169,7 +169,15 @@ var ClickActionButton = {
         TextUp : function() {
         	
         	var id = $(this).attr('id');
- 			var text = document.getElementById( 'text_'+id );
+        	var text;
+        	var id_table = id_table = $(this).attr('dir');
+        	
+        	if(id_table){
+        		text = document.getElementById( 'text_'+id+'.'+id_table );
+        	}else{
+        		text = document.getElementById( 'text_'+id );
+        	}
+ 			
  			var inner = text.innerHTML;
 		
  			if(isEditingEnabled[id]){
@@ -178,7 +186,7 @@ var ClickActionButton = {
 	 			isEditingEnabled[id] = false;	
 	 			
 	 			var table = $(this).attr('hspace');
-	 			var id_table = $(this).attr('dir');
+	 			id_table = $(this).attr('dir');
 				
 				$.post(
 	        		base_url+'app/update_input_text/'+id_template+'/'+id_html,
@@ -209,7 +217,15 @@ var ClickActionButton = {
        		CKEDITOR.disableAutoInline = true;
         	
         	var id = $(this).attr('id');
-		 	var description = document.getElementById( 'dpro_'+id );
+		 	var description;
+		 	
+		 	var id_table = id_table = $(this).attr('dir');
+        	
+        	if(id_table){
+        		description = document.getElementById( 'dpro_'+id+'.'+id_table );
+        	}else{
+        		description = document.getElementById( 'dpro_'+id );
+        	}
 		 	
 		 	if(isEditingEnabled[id]){
 		 		if (depro[id]){

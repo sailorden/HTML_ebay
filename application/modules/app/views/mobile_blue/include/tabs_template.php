@@ -5,7 +5,7 @@
 		<?php foreach ($tabs as $key => $value): ?>
 			
 			<li class="resp-tab-item" aria-controls="tab_item-<?= $key ?>" role="tab">
-				<span id="text_name_tab"><?= $value->name_tab ?></span>
+				<span id="<?= 'text_name_tab.id_tab.'.$value->id_tab ?>"><?= $value->name_tab ?></span>
 				<button id="name_tab" hspace="tabs" dir="<?= 'id_tab.'.$value->id_tab ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface text">
 					<i class="fa fa-pencil"></i></button>
 			</li>
@@ -23,7 +23,7 @@
 			<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-<?= $key ?>">
 				<div class="facts">
 				  	<ul class="tab_list">
-				  		<li><p id="dpro_text_tab"><?= $value->text_tab ?></p></li>
+				  		<li><p id="<?= 'dpro_text_tab.id_tab.'.$value->id_tab ?>"><?= $value->text_tab ?></p></li>
 				  		<li><button id="text_tab" hspace="tabs" dir="<?= 'id_tab.'.$value->id_tab ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface textarea"><i class="fa fa-pencil"></i></button></li>
 			  		</ul>           
 		        </div>
