@@ -57,6 +57,26 @@ var ClickActionButton = {
         	$('#eye-slash').attr('id','eye');
            
         },
+        
+        
+        ButtonAddTab : function() {
+        	
+            $('.buttons_interface.tab').click(ClickActionButton.TabUp);
+           
+        },
+        
+        TabUp : function() {
+
+       		$.post(
+	        		base_url+'app/add_new_tab/'+id_template,
+	        		{id_html: id_html},
+	        		function(returndata){
+	        			
+	        			var json = JSON.parse(returndata);
+						$("#horizontalTab").html(json);
+					}
+				);
+        },
 
         ImageUp : function(){
 
@@ -161,11 +181,11 @@ var ClickActionButton = {
 	 			var id_table = $(this).attr('dir');
 				
 				$.post(
-        		base_url+'app/update_input_text/'+id_template+'/'+id_html,
-        		{id:id,table: table, id_table: id_table, value: text.innerHTML,id_html: id_html},
-        		function(returndata){
-					text.innerHTML = returndata;
-				}
+	        		base_url+'app/update_input_text/'+id_template+'/'+id_html,
+	        		{id:id,table: table, id_table: id_table, value: text.innerHTML,id_html: id_html},
+	        		function(returndata){
+						text.innerHTML = returndata;
+					}
 				);
 				
  			}else{
@@ -228,6 +248,7 @@ var ClickActionButton = {
 $(window).load(LoadButtonShow.ButtonShow);
 $(window).load(ClickActionButton.ButtonEditImage);
 $(window).load(ClickActionButton.ButtonEditText);
+$(window).load(ClickActionButton.ButtonAddTab);
 $(window).load(ClickActionButton.HideShowButtons);
 $(window).load(ClickActionButton.ButtonModalForm);
 

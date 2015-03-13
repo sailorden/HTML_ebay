@@ -123,8 +123,16 @@
 								<?php $this->load->view('include/description_template') ?>
 			   					
 		   					</div>
+		   					
+		   					<div class="sap_tabs">	
 		   						
-	   						<?php $this->load->view('include/tabs_template') ?>
+ 								<div id="horizontalTab">
+		   						
+	   								<?php $this->load->view('include/tabs_template') ?>
+	   						
+	   							</div>
+						
+							</div>
 					
 						</div>
 						

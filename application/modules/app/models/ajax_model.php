@@ -23,6 +23,18 @@ class Ajax_model extends CI_Model{
 	
    }
 	
+	public function set_tab($data){
+		
+		$this->db->trans_start();
+		$this->db->insert('tabs', $data);
+		$this->db->trans_complete(); 
+		
+		if ($this->db->trans_status() === FALSE):
+        	show_error('error_500');
+		endif;
+	
+   }
+	
 	public function set_text($data, $table, $id_html, $id_table = FALSE){
 			
 		$this->db->trans_start();

@@ -2296,4 +2296,7 @@ h3.like, h3.recent {
 .logo {
 	margin-left: 0em;
 }
+
+#horizontalTab {
+	display: block; width: 100%; margin: 0px;
 }

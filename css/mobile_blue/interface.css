@@ -89,7 +89,7 @@ span.actual .input_toggle {
 
 #name_product.buttons_interface {
   right: 0px;
-  top: 5.2%;
+  top: 4.3%;
 }
 
 .price_single .buttons_interface {
@@ -125,3 +125,6 @@ span.actual .input_toggle {
 	padding-left: 5px;
 }
 
+#add_tab {
+  margin: 8px;
+}

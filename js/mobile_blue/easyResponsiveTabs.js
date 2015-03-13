@@ -77,7 +77,7 @@
                 //Tab Click action function
                 $respTabs.find("[role=tab]").each(function () {
                     var $currentTab = $(this);
-                    $currentTab.click(function () {
+                    $currentTab.live('click',function () {
 
                         var $tabAria = $currentTab.attr('aria-controls');
 
