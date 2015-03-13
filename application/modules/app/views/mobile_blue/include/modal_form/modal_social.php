@@ -1,5 +1,23 @@
 <div style="display: none" id="form-social" title="Redes Sociales">
-<form>
+	
+
+<form role="form">
+  <div class="form-group">
+    <label for="social_facebook">Facebook</label>
+    <input size="47" hspace="social" type="text" name="social_facebook" id="social_facebook" value="<?= $social->social_facebook ?>">
+    
+    <label for="social_twitter">Twitter</label>
+    <input size="47" hspace="social" type="text" name="social_twitter" id="social_twitter" value="<?= $social->social_twitter ?>">
+  </div>
+  <div class="form-group">
+    <label for="social_twitter">Twitter</label>
+    <input size="47" hspace="social" type="text" name="social_twitter" id="social_twitter" value="<?= $social->social_twitter ?>">
+  </div>
+  <button class="buttons_interface text" id="price" style="" hspace="html"><i class="fa fa-save"></i></button>
+</form>
+
+
+<!--<form>
 <fieldset>
 <label for="social_facebook">Facebook</label>
 <input size="57" hspace="social" type="text" name="social_facebook" id="social_facebook" class="text ui-widget-content ui-corner-all" value="<?= $social->social_facebook ?>">
@@ -29,8 +47,9 @@
 <input size="57" hspace="social" type="text" name="social_instagram" id="social_instagram" class="text ui-widget-content ui-corner-all" value="<?= $social->social_instagram ?>">
 
 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+<button class="buttons_interface text" id="price" style="" hspace="html"><i class="fa fa-save"></i></button>
 </fieldset>
-</form>
+</form>-->
 </div>
 
 

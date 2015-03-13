@@ -32,6 +32,10 @@
   	left: 85%;
   	top: 74%;
 }
+.buttons_interface.social {
+  	left: 85%;
+  	top: -6%;
+}
 .jfilestyle {
   cursor: pointer;
   opacity: 0;

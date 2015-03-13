@@ -38,7 +38,7 @@
 	 
 	 <?php endif ?>
 	 
-	 <div dir="social" id="modal_form" style="display: none;" class="buttons_interface soacial"><i class="fa fa-pencil"></i></div>
+	 <div dir="social" id="modal_form" style="display: none;" class="buttons_interface social"><i class="fa fa-pencil"></i></div>
 	<div class="clearfix"></div>
 </div>
 
