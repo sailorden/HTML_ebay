@@ -105,6 +105,7 @@ span.actual .input_toggle {
   position: relative;
 }
 
+
 #input_name_product {
   width: 92%;
 }
@@ -114,11 +115,11 @@ span.actual .input_toggle {
   color: #fff;
 }
 
-.resp-tabs-list li:not(.resp-tab-active) .buttons_interface.text{
+.resp-tabs-list li:not(.resp-tab-active) .buttons_interface{
 	display: none !important;
 }
 
-#name_tab.buttons_interface {
+#name_tab.buttons_interface,.buttons_interface.tab.delete  {
   margin:  -13px 0 -9px 5px;
   position: relative;
   color: #333;
@@ -132,3 +133,4 @@ span.actual .input_toggle {
 #add_tab {
   margin: 8px;
 }
+

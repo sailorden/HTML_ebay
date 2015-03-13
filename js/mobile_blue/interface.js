@@ -61,7 +61,7 @@ var ClickActionButton = {
         
         ButtonAddTab : function() {
         	
-            $('.buttons_interface.tab').click(ClickActionButton.TabUp);
+            $('.buttons_interface.tab.add').click(ClickActionButton.TabUp);
            
         },
         
