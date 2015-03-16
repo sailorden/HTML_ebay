@@ -107,8 +107,12 @@
 					<div class="row">
 						
 						<div class="col-md-3">
+							
+							<div id="menu_left" class="menu_box">
 						
-							<?php $this->load->view('include/menu_template') ?>
+								<?php $this->load->view('include/menu_template') ?>
+							
+							</div>
 							
 							<?php $this->load->view('include/banners_template') ?>
 						

@@ -20,8 +20,8 @@ var ClickActionButton = {
 
         ButtonEditText : function() {
         	
-            $('.buttons_interface.text').click(ClickActionButton.TextUp);
-            $('.buttons_interface.textarea').click(ClickActionButton.TextAreaUp);
+            $('.buttons_interface.text').live('click',ClickActionButton.TextUp);
+            $('.buttons_interface.textarea').live('click',ClickActionButton.TextAreaUp);
            
         },
         
@@ -59,15 +59,17 @@ var ClickActionButton = {
         },
         
         
-        ButtonAddTab : function() {
+        ButtonsAdd : function() {
         	
-            $('.buttons_interface.tab.add').click(ClickActionButton.TabUp);
+            $('.buttons_interface.tab.add').live('click',ClickActionButton.TabUp);
+            $('.buttons_interface.menu.add').live('click',ClickActionButton.MenuUp);
            
         },
         
-        ButtonDeleteTab : function() {
+        ButtonsDelete : function() {
         	
-            $('.buttons_interface.tab.delete').click(ClickActionButton.TabDown);
+            $('.buttons_interface.tab.delete').live('click',ClickActionButton.TabDown);
+            $('.buttons_interface.menu.delete').live('click',ClickActionButton.MenuDown);
            
         },
         
@@ -75,7 +77,7 @@ var ClickActionButton = {
 
        		$.post(
 	        		base_url+'app/add_new_tab/'+id_template,
-	        		{id_html: id_html},
+	        		{id_html: id_html, table: 'tabs'},
 	        		function(returndata){
 	        			
 	        			var json = JSON.parse(returndata);
@@ -90,11 +92,39 @@ var ClickActionButton = {
 
        		$.post(
 	        		base_url+'app/delete_tab/'+id_template,
-	        		{id_html: id_html, id_table: id_table},
+	        		{id_html: id_html, id_table: id_table, table: 'tabs'},
 	        		function(returndata){
 	        			
 	        			var json = JSON.parse(returndata);
 						$("#horizontalTab").html(json);
+					}
+				);
+        },
+        
+        MenuUp : function() {
+
+       		$.post(
+	        		base_url+'app/add_new_menu/'+id_template,
+	        		{id_html: id_html, table: 'menu'},
+	        		function(returndata){
+	        			
+	        			var json = JSON.parse(returndata);
+						$("#menu_left").html(json);
+					}
+				);
+        },
+        
+        MenuDown : function() {
+        	
+        	var id_table = $(this).attr('dir');
+
+       		$.post(
+	        		base_url+'app/delete_menu/'+id_template,
+	        		{id_html: id_html, id_table: id_table, table: 'menu'},
+	        		function(returndata){
+	        			
+	        			var json = JSON.parse(returndata);
+						$("#menu_left").html(json);
 					}
 				);
         },
@@ -285,8 +315,8 @@ var ClickActionButton = {
 $(window).load(LoadButtonShow.ButtonShow);
 $(window).load(ClickActionButton.ButtonEditImage);
 $(window).load(ClickActionButton.ButtonEditText);
-$(window).load(ClickActionButton.ButtonAddTab);
-$(window).load(ClickActionButton.ButtonDeleteTab);
+$(window).load(ClickActionButton.ButtonsAdd);
+$(window).load(ClickActionButton.ButtonsDelete);
 $(window).load(ClickActionButton.HideShowButtons);
 $(window).load(ClickActionButton.ButtonModalForm);
 

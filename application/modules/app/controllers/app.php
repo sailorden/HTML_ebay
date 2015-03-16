@@ -139,6 +139,8 @@ class App  extends MX_Controller {
 		if($this->input->is_ajax_request()){
 			
 			$id_html = $this->input->post('id_html');
+			
+			$table = $this->input->post('table');
 		
 			$this->load->model('Ajax_model');
 			
@@ -148,7 +150,7 @@ class App  extends MX_Controller {
 			
 			$data['id_html'] = $id_html;
 			
-			$this->Ajax_model->set_tab($data);
+			$this->Ajax_model->set_item($data, $table);
 			
 			$data['tabs'] = $this->App_model->get_tabs_html($id_html);
 			
@@ -168,6 +170,8 @@ class App  extends MX_Controller {
 		if($this->input->is_ajax_request()){
 			
 			$id_html = $this->input->post('id_html');
+			
+			$table = $this->input->post('table');
 		
 			$this->load->model('Ajax_model');
 			
@@ -175,13 +179,75 @@ class App  extends MX_Controller {
 			
 			$id_table = $this->input->post('id_table');
 			
-			$this->Ajax_model->delete_tab($id_html, $id_table);
+			$this->Ajax_model->delete_item($id_html, $table, $id_table);
 			
 			$data['tabs'] = $this->App_model->get_tabs_html($id_html);
 			
 			$data['is_change'] = TRUE;
 			
 			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/tabs_template',$data, true));
+			
+		}else{
+			
+			show_404();
+		}
+ 		
+ 	}
+	
+	public function add_new_menu($id){
+ 		
+		if($this->input->is_ajax_request()){
+			
+			$id_html = $this->input->post('id_html');
+			
+			$table = $this->input->post('table');
+		
+			$this->load->model('Ajax_model');
+			
+			$data['name_menu'] = "NUEVO LINK";
+			
+			$data['id_html'] = $id_html;
+			
+			$this->Ajax_model->set_item($data, $table);
+			
+			$data['menu'] = $this->App_model->get_menu_html($id_html);
+			
+			$data['html'] = $this->App_model->get_html($id, $id_html);
+			
+			$data['is_change'] = TRUE;
+			
+			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/menu_template',$data, true));
+			
+		}else{
+			
+			show_404();
+		}
+ 		
+ 	}
+	
+	public function delete_menu($id){
+ 		
+		if($this->input->is_ajax_request()){
+			
+			$id_html = $this->input->post('id_html');
+			
+			$table = $this->input->post('table');
+		
+			$this->load->model('Ajax_model');
+			
+			$id_html = $this->input->post('id_html');
+			
+			$id_table = $this->input->post('id_table');
+			
+			$this->Ajax_model->delete_item($id_html, $table, $id_table);
+			
+			$data['menu'] = $this->App_model->get_menu_html($id_html);
+			
+			$data['html'] = $this->App_model->get_html($id,$id_html);
+			
+			$data['is_change'] = TRUE;
+			
+			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/menu_template',$data, true));
 			
 		}else{
 			

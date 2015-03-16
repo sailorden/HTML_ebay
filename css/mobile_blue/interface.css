@@ -7,7 +7,7 @@
 	/*font-size: 1.2em;
 	padding: 3px 6px;*/
 	font-size: 21px;
-	padding: 3px 8px;
+	padding: 2px 8px;
 	position: absolute;
 	background: #f2f2f2; /* Old browsers */
 	background: -moz-linear-gradient(top,  #f2f2f2 0%, #d6d6d6 36%, #c9c9c9 54%, #999999 100%); /* FF3.6+ */
@@ -130,7 +130,30 @@ span.actual .input_toggle {
 	padding-left: 5px;
 }
 
-#add_tab {
+.buttons_interface.tab.add {
   margin: 8px;
 }
 
+.buttons_interface.menu {
+	color: #333;
+}
+
+.buttons_interface.menu.add {
+  margin: 10px 15px 10px 40px;
+  position: relative;
+}
+
+.buttons_interface.menu.delete {
+  left: 81.5%;
+  position: absolute;
+  top: 2.5%;
+}
+
+ul.nav li.button:hover {
+  background: none;
+}
+
+.buttons_interface.menu.edit {
+  top: 2.5%;
+  left: 66%;
+}
