@@ -162,6 +162,33 @@ class App  extends MX_Controller {
 		}
  		
  	}
+	
+	public function delete_tab($id){
+ 		
+		if($this->input->is_ajax_request()){
+			
+			$id_html = $this->input->post('id_html');
+		
+			$this->load->model('Ajax_model');
+			
+			$id_html = $this->input->post('id_html');
+			
+			$id_table = $this->input->post('id_table');
+			
+			$this->Ajax_model->delete_tab($id_html, $id_table);
+			
+			$data['tabs'] = $this->App_model->get_tabs_html($id_html);
+			
+			$data['is_change'] = TRUE;
+			
+			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/tabs_template',$data, true));
+			
+		}else{
+			
+			show_404();
+		}
+ 		
+ 	}
 
 	
 	public function up_load_image($id, $id_html){

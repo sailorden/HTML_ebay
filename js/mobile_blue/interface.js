@@ -65,11 +65,32 @@ var ClickActionButton = {
            
         },
         
+        ButtonDeleteTab : function() {
+        	
+            $('.buttons_interface.tab.delete').click(ClickActionButton.TabDown);
+           
+        },
+        
         TabUp : function() {
 
        		$.post(
 	        		base_url+'app/add_new_tab/'+id_template,
 	        		{id_html: id_html},
+	        		function(returndata){
+	        			
+	        			var json = JSON.parse(returndata);
+						$("#horizontalTab").html(json);
+					}
+				);
+        },
+        
+        TabDown : function() {
+        	
+        	var id_table = $(this).attr('dir');
+
+       		$.post(
+	        		base_url+'app/delete_tab/'+id_template,
+	        		{id_html: id_html, id_table: id_table},
 	        		function(returndata){
 	        			
 	        			var json = JSON.parse(returndata);
@@ -170,7 +191,7 @@ var ClickActionButton = {
         	
         	var id = $(this).attr('id');
         	var text;
-        	var id_table = id_table = $(this).attr('dir');
+        	var id_table = $(this).attr('dir');
         	
         	if(id_table){
         		text = document.getElementById( 'text_'+id+'.'+id_table );
@@ -265,6 +286,7 @@ $(window).load(LoadButtonShow.ButtonShow);
 $(window).load(ClickActionButton.ButtonEditImage);
 $(window).load(ClickActionButton.ButtonEditText);
 $(window).load(ClickActionButton.ButtonAddTab);
+$(window).load(ClickActionButton.ButtonDeleteTab);
 $(window).load(ClickActionButton.HideShowButtons);
 $(window).load(ClickActionButton.ButtonModalForm);
 
