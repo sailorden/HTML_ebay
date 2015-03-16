@@ -162,6 +162,28 @@ class App  extends MX_Controller {
 		}
  		
  	}
+	
+	public function update_each_item($id, $id_html){
+ 		
+		if($this->input->is_ajax_request()){
+			
+			$table = $this->input->post('table');
+			$item = $this->input->post('id');
+			$data[$item] = $this->input->post('value');
+		
+			$this->load->model('Ajax_model');
+			$this->Ajax_model->set_text($data, $table, $id_html);
+			
+			$data['social'] = $this->App_model->get_social_html($id_html);
+			$data['is_change'] = TRUE;
+			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/social_template',$data, true));
+			
+		}else{
+			
+			show_404();
+		}
+ 		
+ 	}
 
 	
 	public function up_load_image($id, $id_html){
@@ -177,7 +199,7 @@ class App  extends MX_Controller {
 			$folder_image = $this->input->post('folder_image');
 			
 			$config['upload_path'] = $folder_template.'/'.$folder_image.'/';
-			$config['allowed_types'] = 'jpg|jpeg';
+			$config['allowed_types'] = '*';
 			$config['max_size']     = '500';
 			$config['max_width'] = $max_width;
 			$config['max_height'] = $max_height;

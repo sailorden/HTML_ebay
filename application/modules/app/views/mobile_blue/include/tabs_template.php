@@ -4,7 +4,7 @@
 		
 		<?php foreach ($tabs as $key => $value): ?>
 			
-			<li class="resp-tab-item" aria-controls="tab_item-<?= $key ?>" role="tab">
+			<li id="tab-<?= $key ?>" class="resp-tab-item" aria-controls="tab_item-<?= $key ?>" role="tab">
 				<span id="<?= 'text_name_tab.id_tab.'.$value->id_tab ?>"><?= $value->name_tab ?></span>
 				<button id="name_tab" hspace="tabs" dir="<?= 'id_tab.'.$value->id_tab ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface text">
 					<i class="fa fa-pencil"></i></button>

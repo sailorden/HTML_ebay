@@ -34,7 +34,13 @@ var ClickActionButton = {
         
         ButtonModalForm : function() {
         	
-            $('#modal_form').click(ClickActionButton.ModalForm);
+            $('#modal_form').live('click',ClickActionButton.ModalForm);
+           
+        },
+        
+        ButtonEditEach : function() {
+        	
+            $('.buttons_interface.each').click(ClickActionButton.EachItem);
            
         },
         
@@ -151,19 +157,42 @@ var ClickActionButton = {
         
         ModalForm : function(){
         	
-        	var dir = $(this).attr('dir'); 
-        	
+        	var dir = $(this).attr('dir').split("_"); 
+ 
         	$(function(){
 						
-				$('#form-'+dir).show();
-				$('#form-'+dir).dialog({
+				$('#form-'+dir[0]).show();
+				$('#form-'+dir[0]).dialog({
 					modal: true,
-					width: 600,
-					height: 700,
+					width: dir[1],
+					height: dir[2],
 					resizable: false,
 				});
 				
 			});
+        },
+        
+        EachItem : function(){
+        	
+        	var table = $(this).attr('hspace');
+        	$("#modal_form input[type=text]").each(function (index) {
+        		
+        		var id = $(this).attr('id');
+        		var value = $(this).val();
+        		
+        		$.post(
+	        		base_url+'app/update_each_item/'+id_template+'/'+id_html,
+	        		{id:id,table:table, value:value},
+	        		function(returndata){
+						var json = JSON.parse(returndata);
+						$("#content_social").html(json);
+					}
+				);
+
+        	});
+        	
+        	$('#form-'+table).dialog( "close" ); 
+        	
         },
         
         TextUp : function() {
@@ -267,6 +296,7 @@ $(window).load(ClickActionButton.ButtonEditText);
 $(window).load(ClickActionButton.ButtonAddTab);
 $(window).load(ClickActionButton.HideShowButtons);
 $(window).load(ClickActionButton.ButtonModalForm);
+$(window).load(ClickActionButton.ButtonEditEach);
 
 
 
