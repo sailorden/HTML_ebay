@@ -23,10 +23,10 @@ class Ajax_model extends CI_Model{
 	
    }
 	
-	public function set_tab($data){
+	public function set_item($data, $table){
 		
 		$this->db->trans_start();
-		$this->db->insert('tabs', $data);
+		$this->db->insert($table, $data);
 		$this->db->trans_complete(); 
 		
 		if ($this->db->trans_status() === FALSE):
@@ -34,6 +34,24 @@ class Ajax_model extends CI_Model{
 		endif;
 	
    }
+	
+	public function delete_item($id_html, $table, $id_table){
+   		
+		$this->db->trans_start();
+		$this->db->where('id_html', $id_html);
+		
+		if($id_table){
+			$aux = explode('.',$id_table);
+			$this->db->where($aux[0], $aux[1]);
+		}
+		
+		$this->db->delete($table);
+		$this->db->trans_complete();
+		if ($this->db->trans_status() === FALSE):
+	         show_error('error_500');
+		endif;
+		
+	}
 	
 	public function set_text($data, $table, $id_html, $id_table = FALSE){
 			

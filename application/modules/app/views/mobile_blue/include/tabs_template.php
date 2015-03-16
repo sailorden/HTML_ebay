@@ -1,6 +1,6 @@
 <?php if ($tabs): ?>
 	
-	<ul id="list_tabs" hspace="tabs" dir="<?= count($tabs); ?>" class="resp-tabs-list">
+	<ul id="list_tabs" class="resp-tabs-list">
 		
 		<?php foreach ($tabs as $key => $value): ?>
 			
@@ -8,13 +8,19 @@
 				<span id="<?= 'text_name_tab.id_tab.'.$value->id_tab ?>"><?= $value->name_tab ?></span>
 				<button id="name_tab" hspace="tabs" dir="<?= 'id_tab.'.$value->id_tab ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface text">
 					<i class="fa fa-pencil"></i></button>
+				<button id="delete_tab" dir="<?= 'id_tab.'.$value->id_tab ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface tab delete">
+					<i class="fa fa-remove"></i></button>
 			</li>
 			 
 		<?php endforeach ?>
 	
 	</ul>
 	
-	<button id="add_tab" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface tab"><i class="fa fa-plus"></i></button>
+	<?php if (count($tabs) < 5): ?>
+		
+		<button id="add_tab" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface tab add"><i class="fa fa-plus"></i></button>
+			
+	<?php endif ?>
 	
 	<div id="description_tabs" class="resp-tabs-container">
 		
@@ -24,7 +30,9 @@
 				<div class="facts">
 				  	<ul class="tab_list">
 				  		<li><p id="<?= 'dpro_text_tab.id_tab.'.$value->id_tab ?>"><?= $value->text_tab ?></p></li>
-				  		<li><button id="text_tab" hspace="tabs" dir="<?= 'id_tab.'.$value->id_tab ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface textarea"><i class="fa fa-pencil"></i></button></li>
+				  		<li>
+				  			<button id="text_tab" hspace="tabs" dir="<?= 'id_tab.'.$value->id_tab ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface textarea"><i class="fa fa-pencil"></i></button>
+			  			</li>
 			  		</ul>           
 		        </div>
 		     </div>	
