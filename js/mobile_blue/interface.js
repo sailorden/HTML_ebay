@@ -35,6 +35,7 @@ var ClickActionButton = {
         ButtonModalForm : function() {
         	
             $('#modal_form').click(ClickActionButton.ModalForm);
+            $('.modal_form').live('click',ClickActionButton.ModalForm);
            
         },
         
