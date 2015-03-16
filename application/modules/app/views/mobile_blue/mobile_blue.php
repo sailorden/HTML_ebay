@@ -90,7 +90,11 @@
 					
 					<?php $this->load->view('include/top_template') ?>
 					
-					<?php $this->load->view('include/social_template') ?>
+					<div id="content_social" class="col-md-12 header_right">
+						
+						<?php $this->load->view('include/social_template') ?>
+						
+					</div>
 					
 				</div>
 				
