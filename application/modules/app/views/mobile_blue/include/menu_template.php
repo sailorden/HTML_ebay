@@ -11,11 +11,17 @@
 			 
 			 <li>
 			 	<a href="<?= $value->link_menu ?>"><?= $value->name_menu ?></a>
-				<button id="name_submenu" hspace="tabs" dir="<?= 'id_tab.'.$value->id_tab ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface menu edit">
+				<button id="modal_form" dir="<?= 'menu-'.$value->id_menu ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface menu edit modal_form">
 					<i class="fa fa-pencil"></i></button>
 				<button id="delete_menu" dir="<?= 'id_menu.'.$value->id_menu ?>" <?php if (!isset($is_change)): ?>style="display: none;"<?php endif ?> class="buttons_interface menu delete">
 					<i class="fa fa-remove"></i></button>
 		 	</li>
+		 	
+		 	<?php if(!$this->input->is_ajax_request()) : ?>
+			 
+			 	<?php $this->load->view($base_url.'include/modal_form/modal_menu') ?>
+			 
+			 <?php endif ?>
 			 
 		 <?php endforeach ?>
 		 

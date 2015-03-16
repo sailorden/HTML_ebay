@@ -34,6 +34,7 @@ var ClickActionButton = {
         
         ButtonModalForm : function() {
         	
+<<<<<<< HEAD
             $('#modal_form').live('click',ClickActionButton.ModalForm);
            
         },
@@ -41,6 +42,10 @@ var ClickActionButton = {
         ButtonEditEach : function() {
         	
             $('.buttons_interface.each').click(ClickActionButton.EachItem);
+=======
+            $('#modal_form').click(ClickActionButton.ModalForm);
+            $('.modal_form').live('click',ClickActionButton.ModalForm);
+>>>>>>> f6e2e8aaf09b95d186f4c1a491d887f193f5e147
            
         },
         
