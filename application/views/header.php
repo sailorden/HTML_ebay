@@ -65,7 +65,7 @@
 				
 			<?php endif; ?>
 			
-			<li><a id="style" dir="style_600_400" title="Estilo" class="icons modal_form" href="#"><i class="fa fa-paint-brush"></i></a></li>
+			<li><a id="style" dir="style_600_500" title="Estilo" class="icons modal_form" href="#"><i class="fa fa-paint-brush"></i></a></li>
 			
 			<li><a id="eye" class="icons" title="Previsualizar" href="#"><i class="fa fa-eye"></i></a></li>
 		

@@ -104,6 +104,11 @@ span.actual .input_toggle {
 	position: relative;
 }
 
+.image_delete  {
+	position: relative;
+	float:right;
+}
+
 .buttons_interface.textarea {
   margin: 8px 0;
   position: relative;
@@ -160,4 +165,8 @@ ul.nav li.button:hover {
 .buttons_interface.menu.edit {
   top: 2.5%;
   left: 66%;
+}
+
+.form-group.style {
+	margin-top: 60px;
 }

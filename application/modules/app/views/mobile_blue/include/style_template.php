@@ -25,6 +25,7 @@
 				background: <?= '#'.$style->secondary_color ?> !important;
 			}
 		
+<<<<<<< HEAD
 		<?php endif; ?>
 		
 		<?php if ($style->background_color OR $style->background_image): ?>
@@ -43,6 +44,21 @@
 				
 				<?php endif ?>
 			}
+=======
+		<?php endif ?>
+	
+		html,body{
+			
+			<?php if ($style->background_color): ?>
+			
+			 	background: <?= '#'.$style->background_color ?> !important;
+			
+			<?php endif ?>
+			
+			<?php if ($style->background_image): ?>
+			
+				background: url(<?= $this->config->site_url().'/'.$folder_template.'/image/'.$style->background_image ?>) repeat center top !important;
+>>>>>>> origin/master
 			
 		<?php endif; ?>
 	
