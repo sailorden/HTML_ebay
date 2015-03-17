@@ -261,6 +261,7 @@ header {
   z-index: 2;
 }
 .picker {
+	cursor: pointer;
 	margin:0;
 	padding:0;
 	border:0;
