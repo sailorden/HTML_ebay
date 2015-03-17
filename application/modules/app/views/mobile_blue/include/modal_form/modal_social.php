@@ -1,5 +1,5 @@
 <div style="display: none" id="form-social" title="Redes Sociales">
-<div id="modal_form" role="form">
+<div id="modal_form_social" role="form">
   <div class="form-group">
     <label for="social_facebook">Facebook</label>
     <input size="59" type="text" name="social_facebook" id="social_facebook" value="<?= $social->social_facebook ?>">

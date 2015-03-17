@@ -36,6 +36,10 @@
   	left: 96%;
   	top: -6%;
 }
+.image_modal_form img {
+  	left: 10%;
+  	position:relative;
+}
 .jfilestyle {
   cursor: pointer;
   opacity: 0;

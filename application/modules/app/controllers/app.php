@@ -173,13 +173,23 @@ class App  extends MX_Controller {
 			$table = $this->input->post('table');
 			$item = $this->input->post('id');
 			$data[$item] = $this->input->post('value');
+			if($this->input->post('id_item')){
+				
+				$id_item = 'id_'.$table.'.'.$this->input->post('id_item');
+				
+			}else{
+				
+				$id_item = FALSE;
+			} 
 		
 			$this->load->model('Ajax_model');
-			$this->Ajax_model->set_text($data, $table, $id_html);
+			$this->Ajax_model->set_text($data, $table, $id_html,$id_item);
 			
+			$data['html'] = $this->App_model->get_primary($id);
 			$data['social'] = $this->App_model->get_social_html($id_html);
+			$data['menu'] = $this->App_model->get_menu_html($id_html);
 			$data['is_change'] = TRUE;
-			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/social_template',$data, true));
+			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/'.$table.'_template',$data, true));
 			
 		}else{
 			
@@ -262,7 +272,14 @@ class App  extends MX_Controller {
 			
 			$data['is_change'] = TRUE;
 			
-			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/menu_template',$data, true));
+			$views = array(
+			
+							$this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/menu_template',$data, true),
+							$this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/modal_form/modal_menu',$data, true),
+						
+						);
+			
+			echo json_encode($views);
 			
 		}else{
 			
@@ -293,7 +310,14 @@ class App  extends MX_Controller {
 			
 			$data['is_change'] = TRUE;
 			
-			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/menu_template',$data, true));
+			$views = array(
+			
+							$this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/menu_template',$data, true),
+							$this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/modal_form/modal_menu',$data, true),
+						
+						);
+			
+			echo json_encode($views);
 			
 		}else{
 			
@@ -314,6 +338,14 @@ class App  extends MX_Controller {
 			$max_height = $this->input->post('max_height');
 			$folder_template = $this->input->post('folder_template');
 			$folder_image = $this->input->post('folder_image');
+			if($this->input->post('id_item')){
+				
+				$id_item = $this->input->post('id_item');
+				
+			}else{
+				
+				$id_item = FALSE;
+			} 
 			
 			$config['upload_path'] = $folder_template.'/'.$folder_image.'/';
 			$config['allowed_types'] = '*';
@@ -329,7 +361,7 @@ class App  extends MX_Controller {
 				
 				$this->load->model('Ajax_model');
 				$data_image = $this->upload->data();
-				if($this->Ajax_model->get_image($item,$data_image['file_name'],$table,$id_html)){
+				if($this->Ajax_model->get_image($item,$data_image['file_name'],$table,$id_html,$id_item)){
 					
 					echo json_encode($data_image['file_name']);
 					
