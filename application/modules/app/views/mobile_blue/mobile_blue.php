@@ -21,55 +21,11 @@
 		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		
-		<?php if ($style): ?>
-			
-			<style>
-			
-			<?php if ($style->primary_color): ?>
-			
-			 	h3.menu_head, ul.nav li:hover, .resp-tab-item:hover, .resp-tab-active{
-					background: <?= $style->primary_color ?> !important;
-				}
-				
-				.shipping h3 {
-				  	background-color: <?= $style->primary_color ?> !important;
-				}
-				
-				span.actual {
-					color: <?= $style->primary_color ?> !important;
-				}
-			
-			<?php endif ?>
-			
-			<?php if ($style->secondary_color): ?>
-			 	
-			 	ul.nav, ul.women_pagenation li.active a, ul.women_pagenation li a:hover, .contact-form input[type="submit"]:hover, .acount-btn:hover, 
-			 		.login-right input[type="submit"]:hover, .register-but input[type="submit"]:hover{
-					background: <?= $style->secondary_color ?> !important;
-				}
-			
-			<?php endif ?>
+		<div id="style_html">
 		
-			html,body{
-				
-				<?php if ($style->background_color): ?>
-				
-				 	background: <?= $style->background_color ?> !important;
-				
-				<?php endif ?>
-				
-				<?php if ($style->background_image): ?>
-				
-	   				background: url(../mobile_blue/images/<?=$style->background_image?>) repeat center top;
-				
-				<?php endif ?>
-			}
-			
-			</style>
-			
-		<?php endif ?>
+			<?php $this->load->view('include/style_template') ?>
 		
-		
+		</div>
 		
 		<title><?= $title; ?></title>
 		
@@ -77,7 +33,11 @@
 		
 	</head>
 	
-	
+	<?php if(!$this->input->is_ajax_request()) : ?>
+			 
+	 	<?php $this->load->view('include/modal_form/modal_style') ?>
+	 
+	 <?php endif ?>
 	
 	
 	<body class="bg-html">

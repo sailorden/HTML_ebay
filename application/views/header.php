@@ -53,7 +53,7 @@
 			
 			<li><?=  anchor('login/logout', '<i class="fa fa-paste"></i>','title="Guardar como" class="icons"') ?></li>
 			
-			<li><?=  anchor('login/logout', '<i class="fa fa-paint-brush"></i>','title="Estilo" class="icons"') ?></li>
+			<li><a id="style" dir="style_600_400" title="Estilo" class="icons modal_form" href="#"><i class="fa fa-paint-brush"></i></a></li>
 			
 			<li><a id="eye" class="icons" title="Previsualizar" href="#"><i class="fa fa-eye"></i></a></li>
 		
@@ -61,7 +61,7 @@
 
 		<li><?=  anchor('login/logout', '<i class="fa fa-power-off"></i>','title="Cerrar sesión" class="icons"') ?></li>
 		
-	</ul>
+	</ul>	
 
 	
 </header>

@@ -60,5 +60,25 @@
 
 	<?= link_js('js/mobile_blue/interface.js') ?>
 	<?= link_js('js/ckeditor/ckeditor.js') ?>
+	<?= link_js('js/colorpicker/colpick.js') ?>
+	
+	<script type="text/javascript">
+    $(document).ready(function () {
+        $('.picker').colpick({
+			layout:'hex',
+			submit:0,
+			colorScheme:'dark',
+			onChange:function(hsb,hex,rgb,el,bySetColor) {
+				$(el).css('border-color','#'+hex);
+				// Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
+				if(!bySetColor) $(el).val(hex);
+			}
+		}).keyup(function(){
+			$(this).colpickSetColor(this.value);
+		});
+		
+		
+    });
+</script>
 	
 <?php endif ?>	

@@ -260,3 +260,16 @@ header {
   width: 600px;
   z-index: 2;
 }
+.picker {
+	margin:0;
+	padding:0;
+	border:0;
+	width:90px;
+	height:20px;
+	border-right:20px solid green;
+	line-height:20px;
+}
+
+.colpick {
+	z-index: 999;
+}

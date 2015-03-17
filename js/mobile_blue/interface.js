@@ -42,6 +42,7 @@ var ClickActionButton = {
         ButtonEditEach : function() {
         	
             $('.buttons_interface.each').click(ClickActionButton.EachItem);
+            $('.buttons_interface.style').click(ClickActionButton.StyleUp);
             $('#modal_form').click(ClickActionButton.ModalForm);
             $('.modal_form').live('click',ClickActionButton.ModalForm);
 
@@ -247,6 +248,30 @@ var ClickActionButton = {
         	});
         	
         	$('#form-'+table).dialog( "close" ); 
+        	
+        },
+        
+        StyleUp : function(){
+        	
+        	var table = $(this).attr('hspace');
+        	$("#modal_form_style input[type=text]").each(function (index) {
+        		
+        		var id = $(this).attr('id');
+        		var value = $(this).val();
+        		
+        		$.post(
+	        		base_url+'app/update_style/'+id_template+'/'+id_html,
+	        		{id:id,table:table, value:value},
+	        		function(returndata){
+						var json = JSON.parse(returndata);
+						$("#style_html").html(json);
+					}
+				);
+
+        	});
+        	
+        	$('#form-'+table).dialog( "close" ); 
+        	//location.reload();
         	
         },
         

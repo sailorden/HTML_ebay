@@ -12,6 +12,7 @@
 <?php if ($this->uri->segment(2) == 'html'): ?>
 	
 	<?= link_tag('css/mobile_blue/interface.css') ?>
+	<?= link_tag('js/colorpicker/colpick.css') ?>
 	
 <?php endif ?>
 
