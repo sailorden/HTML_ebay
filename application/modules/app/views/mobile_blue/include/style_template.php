@@ -37,7 +37,7 @@
 			
 			<?php if ($style->background_image): ?>
 			
-				background: url(../mobile_blue/images/<?=$style->background_image?>) repeat center top;
+				background: url(<?= $this->config->site_url().'/'.$folder_template.'/image/'.$style->background_image ?>) repeat center top !important;
 			
 			<?php endif ?>
 		}

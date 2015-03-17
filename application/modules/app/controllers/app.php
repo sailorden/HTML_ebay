@@ -210,7 +210,7 @@ class App  extends MX_Controller {
 			$this->Ajax_model->set_text($data, $table, $id_html);
 			
 			$data['style'] = $this->App_model->get_style_html($id_html);
-			$data['is_change'] = TRUE;
+			$data['folder_template'] = url_title($this->App_model->get_template($id), 'underscore');
 			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/style_template',$data, true));
 		
 		}else{
@@ -376,6 +376,35 @@ class App  extends MX_Controller {
 			}
 			
 			
+		}else{
+			
+			show_404();
+		}
+
+	}
+
+	public function delete_image($id){
+		
+		if($this->input->is_ajax_request()){
+			
+			$table = $this->input->post('table');
+			$item = $this->input->post('id');
+			$id_html = $this->input->post('id_html');
+
+			if($this->input->post('id_item')){
+				
+				$id_item = $this->input->post('id_item');
+				
+			}else{
+				
+				$id_item = FALSE;
+			} 
+			
+			$this->load->model('Ajax_model');
+			$this->Ajax_model->get_image($item,"",$table,$id_html,$id_item);			
+			
+			
+
 		}else{
 			
 			show_404();

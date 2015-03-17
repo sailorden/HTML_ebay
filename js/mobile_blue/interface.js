@@ -27,8 +27,11 @@ var ClickActionButton = {
         
         ButtonEditImage : function() {
         	
+        	
+        	$('.image_delete').click(ClickActionButton.ImageDelete);
             $('.image').change(ClickActionButton.ImageUp);
             $('.images').change(ClickActionButton.ImagesUp);
+            
            
         },
         
@@ -198,6 +201,7 @@ var ClickActionButton = {
 						$('.'+id).empty();
 						$('.'+id).append('<i class="fa fa-camera"></i>');
 						$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
+						//$('button.'+id).show();
 	
 					}else{
 
@@ -225,6 +229,28 @@ var ClickActionButton = {
         ImagesUp : function(){
         	
         	alert('imagen');
+        },
+        
+        ImageDelete : function(){
+        	
+        	var id = $(this).attr('id');
+        	var table = $(this).attr('hspace');
+        	var id_html = $('#id_html').val();
+        	var src = $('img.'+id).attr('src').split("/");
+        	var id_table = "";
+        	
+			if($(this).attr('accesskey')){
+				
+				id_table = $(this).attr('accesskey');
+			}
+	
+			$.post(
+	        		base_url+'app/delete_image/',
+	        		{id_html: id_html, id_table: id_table, table: table, id: id},
+	        		function(){
+	        			$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/');
+					}
+				);
         },
         
         ModalForm : function(){
