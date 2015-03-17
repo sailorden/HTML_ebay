@@ -468,9 +468,13 @@ class App  extends MX_Controller {
 			} 
 			
 			$this->load->model('Ajax_model');
-			$this->Ajax_model->get_image($item,"",$table,$id_html,$id_item);			
+			$this->Ajax_model->get_image($item,"",$table,$id_html,$id_item);
 			
+			$data['html'] = $this->App_model->get_primary($id);
+		
+			$data['style'] = $this->App_model->get_style_html($data['html']->id_html);			
 			
+			echo json_encode($data['style']->background_image);
 
 
 		}else{

@@ -57,6 +57,7 @@ var ClickActionButton = {
         	
             $('.buttons_interface').hide(); 
         	$('input').hide();
+        	$('#style').hide();
         	$('#eye').empty();
         	$('#eye').append('<i class="fa fa-eye-slash"></i>');
         	$('#eye').attr('id','eye-slash');
@@ -67,6 +68,7 @@ var ClickActionButton = {
         	
             $('.buttons_interface').show();
         	$('input').show();
+        	$('#style').show();
         	$('#eye-slash').empty();
         	$('#eye-slash').append('<i class="fa fa-eye"></i>');
         	$('#eye-slash').attr('id','eye');
@@ -246,11 +248,11 @@ var ClickActionButton = {
 			}
 	
 			$.post(
-	        		base_url+'app/delete_image/',
+	        		base_url+'app/delete_image/'+id_template,
 	        		{id_html: id_html, id_table: id_table, table: table, id: id},
-	        		function(){
+	        		function(data){
 	        			$('img.'+id).empty();
-	        			$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/');
+	        			$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
 	        			$('.delete_'+id).hide();
 					}
 				);

@@ -21,8 +21,15 @@
 		    <input accesskey="<?= $style->id_style ?>" hspace="style" dir="image" id="background_image" type="file" class="jfilestyle style image"/>
 			<div class="buttons_interface style background_image"><i class="fa fa-camera"></i></div>
 			
+			<?php if($style->background_image != "") : ?>
+			
 			<a href=""><img width="" height="" class="background_image" src="<?= base_url('/mobile_blue/image/'.$style->background_image) ?>" alt="<?= alt($value->background_image) ?>"/></a>
-
+			
+			<?php else : ?>
+				
+			<a href=""><img width="" height="" class="background_image" src="<?= base_url('/mobile_blue/image/bg.jpg') ?>" alt="bg.jpg"/></a>
+				
+			<?php endif; ?>
 			<button accesskey="<?= $style->id_style ?>" <?php if(!$style->background_image) : ?>style="display: none;"<?php endif; ?> hspace="style" dir="image" id="background_image" class="image_delete delete_background_image"><i class="fa fa-remove"></i></button>
 				
 			
