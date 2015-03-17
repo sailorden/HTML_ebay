@@ -47,15 +47,6 @@ class App  extends MX_Controller {
 		
 		$data['style'] = $this->App_model->get_style_html($data['html']->id_html);
 		
-		if($data['style']->primary_color OR $data['style']->secondary_color OR $data['style']->background_color OR $data['style']->background_image){
-			
-			$data['is_style'] = TRUE;
-			
-		}else{
-			
-			$data['is_style'] = FALSE;
-		}
-		
 		$data['social'] = $this->App_model->get_social_html($data['html']->id_html);
 		
 		$data['menu'] = $this->App_model->get_menu_html($data['html']->id_html);
@@ -392,7 +383,7 @@ class App  extends MX_Controller {
 
 	}
 
-<<<<<<< HEAD
+
 	public function save_html($id, $id_html){
 		
 		if(isset($_POST['submit_save_html'])){
@@ -451,7 +442,14 @@ class App  extends MX_Controller {
 			
 			echo $this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/'.url_title($this->App_model->get_template($id), 'underscore'), $data, true);
 			
-=======
+		}else{
+			
+			show_404();
+		}
+			
+	}
+			
+
 	public function delete_image($id){
 		
 		if($this->input->is_ajax_request()){
@@ -474,18 +472,13 @@ class App  extends MX_Controller {
 			
 			
 
->>>>>>> origin/master
+
 		}else{
 			
 			show_404();
 		}
-<<<<<<< HEAD
-		
-		
-		
-=======
 
->>>>>>> origin/master
+
 	}
 
 }

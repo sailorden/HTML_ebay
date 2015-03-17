@@ -11,7 +11,7 @@
 			
 			<span class="reducedfrom"><span id="text_old_price"><?= $html->old_price ?></span>€</span>
 			<?php if (!isset($downloadable_version)): ?>
-				<button id="old_price" hspace="html" class="buttons_interface text"><i class="fa fa-pencil"></i></button>
+				<button id="old_price" style="display: none;" hspace="html" class="buttons_interface text"><i class="fa fa-pencil"></i></button>
 			<?php endif ?>
 			
 		<?php endif ?>

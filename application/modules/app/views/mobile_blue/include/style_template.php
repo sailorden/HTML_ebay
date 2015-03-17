@@ -1,4 +1,4 @@
-<?php if ($is_style): ?>
+<?php if ($style): ?>
 	
 	<style>
 
@@ -25,7 +25,6 @@
 				background: <?= '#'.$style->secondary_color ?> !important;
 			}
 		
-<<<<<<< HEAD
 		<?php endif; ?>
 		
 		<?php if ($style->background_color OR $style->background_image): ?>
@@ -44,7 +43,7 @@
 				
 				<?php endif ?>
 			}
-=======
+
 		<?php endif ?>
 	
 		html,body{
