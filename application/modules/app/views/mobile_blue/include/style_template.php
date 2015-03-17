@@ -1,7 +1,7 @@
-<style>
-		
-	<?php if ($style): ?>
-		
+<?php if ($is_style): ?>
+	
+	<style>
+
 		<?php if ($style->primary_color): ?>
 		
 		 	h3.menu_head, ul.nav li:hover, .resp-tab-item:hover, .resp-tab-active{
@@ -25,25 +25,27 @@
 				background: <?= '#'.$style->secondary_color ?> !important;
 			}
 		
-		<?php endif ?>
+		<?php endif; ?>
+		
+		<?php if ($style->background_color OR $style->background_image): ?>
+		
+			html,body{
+				
+				<?php if ($style->background_color): ?>
+				
+				 	background: <?= '#'.$style->background_color ?> !important;
+				
+				<?php endif ?>
+				
+				<?php if ($style->background_image): ?>
+				
+					background: url(../mobile_blue/images/<?=$style->background_image?>) repeat center top;
+				
+				<?php endif ?>
+			}
+			
+		<?php endif; ?>
 	
-		html,body{
-			
-			<?php if ($style->background_color): ?>
-			
-			 	background: <?= '#'.$style->background_color ?> !important;
-			
-			<?php endif ?>
-			
-			<?php if ($style->background_image): ?>
-			
-				background: url(../mobile_blue/images/<?=$style->background_image?>) repeat center top;
-			
-			<?php endif ?>
-		}
-		
-		
-		
-	<?php endif ?>
-	
-</style>
+	</style>
+
+<?php endif ?>

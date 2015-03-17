@@ -47,6 +47,15 @@ class App  extends MX_Controller {
 		
 		$data['style'] = $this->App_model->get_style_html($data['html']->id_html);
 		
+		if($data['style']->primary_color OR $data['style']->secondary_color OR $data['style']->background_color OR $data['style']->background_image){
+			
+			$data['is_style'] = TRUE;
+			
+		}else{
+			
+			$data['is_style'] = FALSE;
+		}
+		
 		$data['social'] = $this->App_model->get_social_html($data['html']->id_html);
 		
 		$data['menu'] = $this->App_model->get_menu_html($data['html']->id_html);
@@ -381,6 +390,73 @@ class App  extends MX_Controller {
 			show_404();
 		}
 
+	}
+
+	public function save_html($id, $id_html){
+		
+		if(isset($_POST['submit_save_html'])){
+			
+			$name_html = "";
+			
+			if($this->input->post('name_html') ==""){
+				
+				$name_html = 'html_'.$id_html;
+				
+			}else{
+				
+				$name_html = $this->input->post('name_html');
+			}
+			
+			$this->App_model->save_html($id, $id_html,$name_html);
+			redirect('app/html/'.$id.'/'.$id_html);
+			
+		}else{
+			
+			show_404();
+		}
+		
+		
+		
+	}
+
+	public function download_html($id = FALSE, $id_html = FALSE){
+		
+		if($id AND $id_html){
+				
+			$html = $this->App_model->get_html($id,$id_html);
+			
+			header('Content-type: application/msword');
+			header('Content-Disposition: inline; filename='.$html->name_html.'.txt');
+			
+			$data['js'] =  $this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/js_module/js_module','',TRUE);
+			
+			$data['template'] = $this->App_model->get_template($id);
+			
+			$data['folder_template'] = url_title($this->App_model->get_template($id), 'underscore');
+		
+			$data['html'] = $this->App_model->get_html($id,$id_html);
+			
+			$data['style'] = $this->App_model->get_style_html($data['html']->id_html);
+			
+			$data['social'] = $this->App_model->get_social_html($data['html']->id_html);
+			
+			$data['menu'] = $this->App_model->get_menu_html($data['html']->id_html);
+			
+			$data['tabs'] = $this->App_model->get_tabs_html($data['html']->id_html);
+			
+			$data['carrusel'] = $this->App_model->get_carrusel_html($data['html']->id_html);
+			
+			$data['downloadable_version'] = TRUE;
+			
+			echo $this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/'.url_title($this->App_model->get_template($id), 'underscore'), $data, true);
+			
+		}else{
+			
+			show_404();
+		}
+		
+		
+		
 	}
 
 }

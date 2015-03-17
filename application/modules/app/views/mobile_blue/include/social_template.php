@@ -60,11 +60,17 @@
  
  <?php endif ?>
  
- <div dir="social_600_840" id="modal_form" <?php if(!isset($is_change)): ?>style="display: none;"<?php endif; ?> class="buttons_interface social"><i class="fa fa-pencil"></i></div>
-<div class="clearfix"></div>
+ <?php if (!isset($downloadable_version)): ?>
+ 	<div dir="social_600_840" id="modal_form" <?php if(!isset($is_change)): ?>style="display: none;"<?php endif; ?> class="buttons_interface social"><i class="fa fa-pencil"></i></div>
+ <?php endif ?>
+	<div class="clearfix"></div>
 
-<?php if(!$this->input->is_ajax_request()): ?>
+ <?php if (!isset($downloadable_version)): ?>
+ 	
+	<?php if(!$this->input->is_ajax_request()): ?>
+		
+		<?php $this->load->view('include/modal_form/modal_social') ?>
+		
+	<?php endif; ?>
 	
-	<?php $this->load->view('include/modal_form/modal_social') ?>
-	
-<?php endif; ?>
+ <?php endif ?>

@@ -155,6 +155,20 @@ class App_model extends CI_Model{
 			return FALSE;
 		}	
    }
+	
+	public function save_html($id_template,$id_html,$name_html){
+			
+		$data = array('state' => 0,'name_html' => $name_html);
+		$this->db->trans_start();
+		$this->db->where('id_template', $id_template);
+		$this->db->where('id_html', $id_html);
+		$this->db->update('html', $data);
+		$this->db->trans_complete(); 
+		
+		if ($this->db->trans_status() === FALSE):
+        	show_error('error_500');
+		endif;
+   }
 
    
 } 

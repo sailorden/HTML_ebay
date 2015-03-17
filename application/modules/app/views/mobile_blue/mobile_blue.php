@@ -31,14 +31,25 @@
 		
 		<?php $this->load->view('css_module/css_module') ?>
 		
+		<?php if (isset($downloadable_version)): ?>
+			
+			<?= $js; ?>
+			
+		<?php endif ?>
+		
 	</head>
 	
-	<?php if(!$this->input->is_ajax_request()) : ?>
-			 
-	 	<?php $this->load->view('include/modal_form/modal_style') ?>
-	 
-	 <?php endif ?>
+	<?php if (!isset($downloadable_version)): ?>
+		
+		<?php if(!$this->input->is_ajax_request()) : ?>
+				 
+		 	<?php $this->load->view('include/modal_form/modal_style') ?>
+		 
+		 <?php endif ?>
+		
+		<?php $this->load->view('include/modal_form/modal_savehtml') ?>
 	
+	<?php endif ?>
 	
 	<body class="bg-html">
 		
