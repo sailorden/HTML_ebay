@@ -48,10 +48,22 @@
 		<!-- Nav -->
 		
 		<?php if ($this->uri->segment(2) == 'html'): ?>
+
+			<li><a id="html" dir="savehtml_600_200" title="Guardar" class="icons modal_form" href="#"><i class="fa fa-floppy-o"></i></a></li>
 			
-			<li><?=  anchor('login/logout', '<i class="fa fa-floppy-o"></i>','title="Guardar" class="icons"') ?></li>
+			<?php if($html->state == 1): ?>
+				
+				<li><a class="icons off" title="Descargar" href="#"><i class="fa fa-download"></i></a></li>
+				
+				<li><a class="icons off" title="Guardar como" href="#"><i class="fa fa-paste"></i></a></li>
 			
-			<li><?=  anchor('login/logout', '<i class="fa fa-paste"></i>','title="Guardar como" class="icons"') ?></li>
+			<?php else: ?>
+				
+				<li><?=  anchor('app/download_html/'.$id_template.'/'.$id_html, '<i class="fa fa-download"></i>','title="Descargar" class="icons"') ?></li>
+				
+				<li><?=  anchor('login/logout', '<i class="fa fa-paste"></i>','title="Guardar como" class="icons"') ?></li>
+				
+			<?php endif; ?>
 			
 			<li><a id="style" dir="style_600_400" title="Estilo" class="icons modal_form" href="#"><i class="fa fa-paint-brush"></i></a></li>
 			

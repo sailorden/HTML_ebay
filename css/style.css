@@ -11,6 +11,9 @@ body{
 	font-size: 12px;
 }
 
+.icons.off .fa{color: #C6C7C7;}
+.icons.off{cursor: default;}
+
 header {
     background: linear-gradient(#56585d, #2f3034) repeat scroll 0 0 rgba(0, 0, 0, 0);
     border-bottom: 1px solid #000;

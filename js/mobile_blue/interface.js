@@ -249,8 +249,8 @@ var ClickActionButton = {
         	var table = $(this).attr('hspace'); 
         	var id_item = "";
         	if($(this).attr('accesskey')){id_item = $(this).attr('accesskey');}
-        	$(this).empty();
-			$(this).append('<img src="'+base_url+folder_template+'/image/loading.png" />');
+        	//$(this).empty();
+			//$(this).append('<img src="'+base_url+folder_template+'/image/loading.png" />');
         	$("#modal_form_"+table+id_item+" input[type=text]").each(function (index) {
         		
         		var id = $(this).attr('id');

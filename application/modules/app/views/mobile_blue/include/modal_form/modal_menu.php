@@ -18,7 +18,17 @@
 		  	
 			    <input accesskey="<?= $value->id_menu ?>" hspace="menu" dir="image" id="icono_menu" type="file" class="jfilestyle menu image"/>
 				<div class="buttons_interface menu icono_menu"><i class="fa fa-camera"></i></div>
-				<a href=""><img width="40" height="40" class="icono_menu" src="<?= base_url('/mobile_blue/image/'.$value->icono_menu) ?>" alt="<?= alt($value->icono_menu) ?>"/></a>
+				<a href="">
+				<?php if($value->icono_menu == NULL OR $value->icono_menu == ""): ?> 
+					
+					<img width="40" height="40" class="icono_menu" src="<?= base_url('/mobile_blue/image/icono_example.jpg') ?>" alt="<?= alt($value->icono_menu) ?>"/>
+				
+				<?php else: ?> 
+					
+					<img width="40" height="40" class="icono_menu" src="<?= base_url('/mobile_blue/image/'.$value->icono_menu) ?>" alt="<?= alt($value->icono_menu) ?>"/>
+					
+				<?php endif; ?> 
+				</a>
 			
 		  	</div>
 			
