@@ -104,7 +104,7 @@ span.actual .input_toggle {
 	position: relative;
 }
 
-.buttons_interface.image_delete  {
+.image_delete  {
 	position: relative;
 	float:right;
 }
@@ -167,6 +167,6 @@ ul.nav li.button:hover {
   left: 66%;
 }
 
-p.image_form {
-	margin-left: 50px;
+.form-group.style {
+	margin-top: 60px;
 }

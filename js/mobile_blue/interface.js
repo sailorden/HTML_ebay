@@ -28,9 +28,10 @@ var ClickActionButton = {
         ButtonEditImage : function() {
         	
         	
-        	$('.image_delete').click(ClickActionButton.ImageDelete);
+        	
             $('.image').change(ClickActionButton.ImageUp);
             $('.images').change(ClickActionButton.ImagesUp);
+            $('.image_delete').click(ClickActionButton.ImageDelete);
             
            
         },
@@ -201,7 +202,7 @@ var ClickActionButton = {
 						$('.'+id).empty();
 						$('.'+id).append('<i class="fa fa-camera"></i>');
 						$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
-						//$('button.'+id).show();
+						$('.delete_'+id).show();
 	
 					}else{
 
@@ -248,7 +249,9 @@ var ClickActionButton = {
 	        		base_url+'app/delete_image/',
 	        		{id_html: id_html, id_table: id_table, table: table, id: id},
 	        		function(){
+	        			$('img.'+id).empty();
 	        			$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/');
+	        			$('.delete_'+id).hide();
 					}
 				);
         },
