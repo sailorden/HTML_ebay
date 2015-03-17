@@ -41,7 +41,7 @@ var ClickActionButton = {
         
         ButtonEditEach : function() {
         	
-            $('.buttons_interface.each').click(ClickActionButton.EachItem);
+            $('.buttons_interface.each').live('click',ClickActionButton.EachItem);
             $('#modal_form').click(ClickActionButton.ModalForm);
             $('.modal_form').live('click',ClickActionButton.ModalForm);
 
@@ -119,7 +119,8 @@ var ClickActionButton = {
 	        		function(returndata){
 	        			
 	        			var json = JSON.parse(returndata);
-						$("#menu_left").html(json);
+						$("#menu_left").html(json[0]);
+						$("#menu_left").append(json[1]);
 					}
 				);
         },
@@ -134,7 +135,8 @@ var ClickActionButton = {
 	        		function(returndata){
 	        			
 	        			var json = JSON.parse(returndata);
-						$("#menu_left").html(json);
+						$("#menu_left").html(json[0]);
+						$("#menu_left").append(json[1]);
 					}
 				);
         },
@@ -142,7 +144,7 @@ var ClickActionButton = {
         ImageUp : function(){
 
         	var id = $(this).attr('id');
-        	var file = document.getElementById(id).files[0];
+        	var file = this.files[0];
         	var table = $(this).attr('hspace');
         	var folder_template = $('#folder_template').val();
         	var folder_image = $(this).attr('dir');
@@ -162,6 +164,10 @@ var ClickActionButton = {
 			data.append('id_html',id_html);
 			data.append('max_width',max_width);
 			data.append('max_height',max_height);
+			if($(this).attr('accesskey')){
+				
+				data.append('id_item',$(this).attr('accesskey'));
+			}
 	
 			$.ajax({
 				
@@ -213,7 +219,7 @@ var ClickActionButton = {
         ModalForm : function(){
         	
         	var dir = $(this).attr('dir').split("_"); 
- 
+ 			
         	$(function(){
 						
 				$('#form-'+dir[0]).show();
@@ -229,24 +235,42 @@ var ClickActionButton = {
         
         EachItem : function(){
         	
-        	var table = $(this).attr('hspace');
-        	$("#modal_form input[type=text]").each(function (index) {
+        	var table = $(this).attr('hspace'); 
+        	var id_item = "";
+        	if($(this).attr('accesskey')){id_item = $(this).attr('accesskey');}
+        	$(this).empty();
+			$(this).append('<img src="'+base_url+folder_template+'/image/loading.png" />');
+        	$("#modal_form_"+table+id_item+" input[type=text]").each(function (index) {
         		
         		var id = $(this).attr('id');
         		var value = $(this).val();
         		
-        		$.post(
-	        		base_url+'app/update_each_item/'+id_template+'/'+id_html,
-	        		{id:id,table:table, value:value},
-	        		function(returndata){
-						var json = JSON.parse(returndata);
-						$("#content_social").html(json);
-					}
-				);
+        		if (id_item == ""){
+        		
+	        		$.post(
+		        		base_url+'app/update_each_item/'+id_template+'/'+id_html,
+		        		{id:id,table:table, value:value},
+		        		function(returndata){
+							var json = JSON.parse(returndata);
+							$(".content_"+table).html(json);
+						}
+					);
+					
+				}else{
+					
+					$.post(
+		        		base_url+'app/update_each_item/'+id_template+'/'+id_html,
+		        		{id:id,table:table, value:value, id_item:id_item},
+		        		function(returndata){
+							var json = JSON.parse(returndata);
+							$(".content_"+table).html(json);
+						}
+					);
+				}
 
         	});
         	
-        	$('#form-'+table).dialog( "close" ); 
+        	$('#form-'+table+id_item).dialog( "close" ); 
         	
         },
         
