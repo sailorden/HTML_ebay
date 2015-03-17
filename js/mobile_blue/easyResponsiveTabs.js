@@ -79,7 +79,7 @@
                     var $currentTab = $(this);
                     $('#'+$currentTab.attr('id')).live('click',function () {
                         var $tabAria = $currentTab.attr('aria-controls');
-						alert('aquí');
+						//alert('aquí');
                         if ($currentTab.hasClass('resp-accordion') && $currentTab.hasClass('resp-tab-active')) {
                             $respTabs.find('.resp-tab-content-active').slideUp('', function () { $(this).addClass('resp-accordion-closed'); });
                             $currentTab.removeClass('resp-tab-active');
