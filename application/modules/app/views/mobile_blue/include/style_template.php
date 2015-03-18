@@ -57,7 +57,7 @@
 			<?php if ($style->background_image): ?>
 			
 				background: url(<?= $this->config->site_url().'/'.$folder_template.'/image/'.$style->background_image ?>) repeat center top !important;
->>>>>>> origin/master
+
 			
 		<?php endif; ?>
 	

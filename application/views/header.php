@@ -60,13 +60,9 @@
 			<?php else: ?>
 				
 				<li><?=  anchor('app/download_html/'.$id_template.'/'.$id_html, '<i class="fa fa-download"></i>','title="Descargar" class="icons slash"') ?></li>
-				
-<<<<<<< HEAD
-				<li><?=  anchor('app/html/0/'.$id_html, '<i class="fa fa-paste"></i>','title="Guardar como" class="icons"') ?></li>
-=======
-				<li><?=  anchor('login/logout', '<i class="fa fa-paste"></i>','title="Guardar como" class="icons slash"') ?></li>
->>>>>>> origin/master
-				
+
+				<li><?=  anchor('app/html/0/'.$id_html, '<i class="fa fa-paste"></i>','title="Guardar como" class="icons slash"') ?></li>
+
 			<?php endif; ?>
 			
 			<li><a id="style" dir="style_600_500" title="Estilo" class="icons slash modal_form" href="#"><i class="fa fa-paint-brush"></i></a></li>
