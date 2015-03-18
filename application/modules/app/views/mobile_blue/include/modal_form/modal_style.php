@@ -3,17 +3,17 @@
 		
 		<div class="form-group">
 			<label for="primary_color">Color primario:</label>
-			#<input size="59" type="text" name="primary_color" id="primary_color" class="picker" value="<?= $style->primary_color ?>">
+			#<input size="59" type="text" style="border-right:20px solid #<?= $style->primary_color ?>;" name="primary_color" id="primary_color" class="picker" value="<?= $style->primary_color ?>">
 		</div>
 		  
 		<div class="form-group">
 			<label for="secondary_color">Color secundario:</label>
-			#<input size="59" type="text" name="secondary_color" id="secondary_color" class="picker" value="<?= $style->secondary_color ?>">
+			#<input size="59" type="text" style="border-right:20px solid #<?= $style->secondary_color ?>;" name="secondary_color" id="secondary_color" class="picker" value="<?= $style->secondary_color ?>">
 		</div>
 		  
 		<div class="form-group">
 			<label for="background_color">Color de fondo:</label>
-			#<input size="59" type="text" name="background_color" id="background_color" class="picker" value="<?= $style->background_color ?>">
+			#<input size="59" type="text" style="border-right:20px solid #<?= $style->background_color ?>;" name="background_color" id="background_color" class="picker" value="<?= $style->background_color ?>">
 		</div>
 		  
 		<div class="form-group image_modal_form">
