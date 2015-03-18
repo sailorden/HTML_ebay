@@ -59,7 +59,7 @@ var ClickActionButton = {
         	
             $('.buttons_interface').hide(); 
         	$('input').hide();
-        	$('#style').hide();
+        	$('.icons.slash').hide();
         	$('#eye').empty();
         	$('#eye').append('<i class="fa fa-eye-slash"></i>');
         	$('#eye').attr('id','eye-slash');
@@ -70,7 +70,7 @@ var ClickActionButton = {
         	
             $('.buttons_interface').show();
         	$('input').show();
-        	$('#style').show();
+        	$('.icons.slash').show();
         	$('#eye-slash').empty();
         	$('#eye-slash').append('<i class="fa fa-eye"></i>');
         	$('#eye-slash').attr('id','eye');
