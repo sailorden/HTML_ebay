@@ -1,4 +1,6 @@
-<div class="labout span_1_of_a1">
+
+
+<div id="etalage_carrusel" class="labout span_1_of_a1">
 	<!-- start product_slider -->
 	
 	<?php if ($carrusel): ?>

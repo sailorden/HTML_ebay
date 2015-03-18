@@ -100,7 +100,7 @@ span.actual .input_toggle {
   top: 4.3%;
 }
 
-.price_single .buttons_interface {
+.price_single .buttons_interface, .buttons_interface.carrusel.add, .jfilestyle.carrusel {
 	position: relative;
 }
 
@@ -169,4 +169,42 @@ ul.nav li.button:hover {
 
 .form-group.style {
 	margin-top: 60px;
+}
+
+.buttons_interface.carrusel {
+  left: 2%;
+  top: 5%;
+  z-index: 1;
+}
+
+.buttons_interface.carrusel.delete {
+  left: 6.6%;
+  top: 5%;
+  z-index: 1;
+}
+
+.col-sm-6 > img {
+  height: 100%;
+  margin-top: 10px;
+  width: 100%;
+}
+.buttons_interface.carrusel.save {
+  position: relative;
+  margin-top: 15px;
+}
+
+
+#modal_form_carrusel .form-group {
+  clear: both !important;
+  float: left !important;
+}
+
+.image_carrusel .fa.fa-camera {
+  left: 7px;
+  position: absolute;
+  top: 8px;
+}
+
+.buttons_interface.carrusel.add {
+  padding: 0;
 }

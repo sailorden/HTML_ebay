@@ -97,6 +97,23 @@
 							
 			   				<div class="singel_right">
 			   					
+		   						<?php if (!isset($downloadable_version)): ?>
+								 	<div dir="carrusel_600_650" id="modal_form" <?php if(!isset($is_change)): ?>style="display: none;"<?php endif; ?> class="buttons_interface carrusel"><i class="fa fa-pencil"></i></div>
+								<?php endif ?>
+								
+								<?php if (!isset($downloadable_version)): ?>
+								 	
+									<?php if(!$this->input->is_ajax_request()): ?>
+										
+										<div style="display: none" id="form-carrusel" title="Editar carrusel de imágenes">
+										
+											<?php $this->load->view('include/modal_form/modal_carrusel') ?>
+										
+										</div>
+									<?php endif; ?>
+									
+								<?php endif ?>
+			   					
 			   					<?php $this->load->view('include/carrusel_template') ?>
 							
 								<?php $this->load->view('include/description_template') ?>
