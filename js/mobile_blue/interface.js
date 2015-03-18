@@ -30,8 +30,9 @@ var ClickActionButton = {
         	
         	
             $('.image').change(ClickActionButton.ImageUp);
-            $('.images').change(ClickActionButton.ImagesUp);
-            $('.image_delete').click(ClickActionButton.ImageDelete);
+            $('.images').live('change',ClickActionButton.ImagesUp);
+            $('.image_delete').live('click',ClickActionButton.ImageDelete);
+            $('.images_delete').live('click',ClickActionButton.ImagesDelete);
             
            
         },
@@ -46,6 +47,7 @@ var ClickActionButton = {
         ButtonEditEach : function() {
 
             $('.buttons_interface.each').live('click',ClickActionButton.EachItem);
+            $('.buttons_interface.carrusel.save').live('click',ClickActionButton.CarruselUp);
             $('.buttons_interface.style').live('click',ClickActionButton.StyleUp);
             $('#modal_form').click(ClickActionButton.ModalForm);
             $('.modal_form').live('click',ClickActionButton.ModalForm);
@@ -57,6 +59,7 @@ var ClickActionButton = {
         	
             $('.buttons_interface').hide(); 
         	$('input').hide();
+        	$('.icons.slash').hide();
         	$('#eye').empty();
         	$('#eye').append('<i class="fa fa-eye-slash"></i>');
         	$('#eye').attr('id','eye-slash');
@@ -67,6 +70,7 @@ var ClickActionButton = {
         	
             $('.buttons_interface').show();
         	$('input').show();
+        	$('.icons.slash').show();
         	$('#eye-slash').empty();
         	$('#eye-slash').append('<i class="fa fa-eye"></i>');
         	$('#eye-slash').attr('id','eye');
@@ -229,7 +233,69 @@ var ClickActionButton = {
         
         ImagesUp : function(){
         	
-        	alert('imagen');
+        	var id = $(this).attr('id');
+        	var file = this.files[0];
+        	var table = $(this).attr('hspace');
+        	var folder_template = $('#folder_template').val();
+        	var folder_image = $(this).attr('dir');
+        	var id_html = $('#id_html').val();
+        	//var src = $('img.'+id).attr('src').split("/");
+        	$('.'+id).empty();
+        	$('.'+id).append('<img src="'+base_url+folder_template+'/image/loading.png" />');
+        	
+			var data = new FormData();
+			data.append('file',file);
+			data.append('id',id);
+			data.append('table',table);
+			data.append('folder_template',folder_template);
+			data.append('folder_image',folder_image);
+			data.append('id_html',id_html);
+	
+			$.ajax({
+				
+				url: base_url+'app/up_load_image_carrusel/'+id_template,
+				type:'POST',
+				contentType:false,
+				data:data,
+				processData:false,
+				cache:false
+				
+				}).done(function(data) {
+
+					var json = JSON.parse(data);
+					
+					
+					$("#form-carrusel").html(json);
+					
+					//var result = JSON.parse(data).split('.');
+					
+					/*if(result[1] == "jpg" || result[1] == "jpeg"){
+						
+						$('.'+id).empty();
+						$('.'+id).append('<i class="fa fa-camera"></i>');
+						//$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
+						//$('.delete_'+id).show();
+	
+					}else{
+
+						$(function(){
+							
+							$('.'+id).empty();
+							$('.'+id).append('<i class="fa fa-camera"></i>');
+							$('body').append(JSON.parse(data));
+							$( "#dialog-message" ).dialog({
+								modal: true,
+								buttons: {
+									Ok: function() {
+										$( this ).dialog( "close" );
+									}
+								}
+							});
+							
+						});
+					}*/
+						
+			});
         },
         
         ImageDelete : function(){
@@ -246,12 +312,32 @@ var ClickActionButton = {
 			}
 	
 			$.post(
-	        		base_url+'app/delete_image/',
+	        		base_url+'app/delete_image/'+id_template,
 	        		{id_html: id_html, id_table: id_table, table: table, id: id},
-	        		function(){
+	        		function(data){
 	        			$('img.'+id).empty();
-	        			$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/');
+	        			$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
 	        			$('.delete_'+id).hide();
+					}
+				);
+        },
+        
+        ImagesDelete : function(){
+        	
+        	var id = $(this).attr('id');
+        	var table = $(this).attr('hspace');
+        	var img = $(this).attr('dir');
+        	var id_html = $('#id_html').val();
+        	var id_table = $(this).attr('accesskey');
+        	$(this).hide();
+	
+			$.post(
+	        		base_url+'app/delete_image_carrusel/'+id_template,
+	        		{id_html: id_html, id_table: id_table, table: table, id: id},
+	        		function(data){
+	        			
+        				$('.image_carrusel_'+img).hide();
+	        			
 					}
 				);
         },
@@ -334,7 +420,36 @@ var ClickActionButton = {
         	});
         	
         	$('#form-'+table).dialog( "close" ); 
-        	//location.reload();
+        	
+        },
+        
+         CarruselUp : function(){
+         	
+        	var table = $(this).attr('hspace');
+        	
+    		$.post(
+        		base_url+'app/update_carrusel/'+id_template+'/'+id_html,
+        		{table:table},
+        		function(returndata){
+					var json = JSON.parse(returndata);
+					$("#etalage_carrusel").html(json);
+					$('#etalage').etalage({
+						thumb_image_width: 450,
+						thumb_image_height: 450,
+						
+						show_hint: true,
+						click_callback: function(image_anchor, instance_id){
+							alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+						}
+					});
+					// This is for the dropdown list example:
+					$('.dropdownlist').change(function(){
+						etalage_show( $(this).find('option:selected').attr('class') );
+					});
+				}
+			);
+			
+			$('#form-'+table).dialog( "close" ); 
         	
         },
         

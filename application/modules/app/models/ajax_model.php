@@ -30,9 +30,14 @@ class Ajax_model extends CI_Model{
 		$this->db->insert($table, $data);
 		$this->db->trans_complete(); 
 		
-		if ($this->db->trans_status() === FALSE):
-        	show_error('error_500');
-		endif;
+		if ($this->db->trans_status() === FALSE){
+			
+			return FALSE;
+			
+		}else{
+			
+			return TRUE;
+		}
 	
    }
 	

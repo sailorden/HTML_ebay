@@ -225,6 +225,22 @@ class App  extends MX_Controller {
 		}
 			
 	}
+	
+	public function update_carrusel($id, $id_html){
+ 		
+		if($this->input->is_ajax_request()){
+			
+			$this->load->model('Ajax_model');
+			$data['carrusel'] = $this->App_model->get_carrusel_html($id_html);
+			
+			echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/carrusel_template',$data, true));
+		
+		}else{
+			
+			show_404();
+		}
+			
+	}
 
 
 	public function delete_tab($id){
@@ -389,6 +405,67 @@ class App  extends MX_Controller {
 
 	}
 
+	public function up_load_image_carrusel($id){
+		
+		if($this->input->is_ajax_request()){
+			
+			$table = $this->input->post('table');
+			$item = $this->input->post('id');
+			$id_html = $this->input->post('id_html');
+			$folder_template = $this->input->post('folder_template');
+			$folder_image = $this->input->post('folder_image');
+			if($this->input->post('id_item')){
+				
+				$id_item = $this->input->post('id_item');
+				
+			}else{
+				
+				$id_item = FALSE;
+			} 
+			
+			$config['upload_path'] = $folder_template.'/'.$folder_image.'/';
+			$config['allowed_types'] = '*';
+			$config['max_size']     = '500';
+			$config['max_width'] = 0;
+			$config['max_height'] = 0;
+			$config['overwrite'] = FALSE;
+			
+			$this->load->library('upload');
+			$this->upload->initialize($config);
+			
+			if($this->upload->do_upload('file')){
+				
+				$this->load->model('Ajax_model');
+				$data_image = $this->upload->data();
+				
+				$data[$item] = $data_image['file_name'];
+				$data['id_html'] = $id_html;
+				
+				if($this->Ajax_model->set_item($data,$table)){
+					
+					$data['carrusel'] = $this->App_model->get_carrusel_html($id_html);
+					$data['html'] = $this->App_model->get_html($id,$id_html);
+
+					echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/modal_form/modal_carrusel',$data, true));
+
+				}else{
+					
+					echo json_encode('<div id="dialog-message" title="¡Ups! parece que tenemos un error"><p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>Problemas al guardar la imagen en la base de datos.', '</p></div>');
+				}
+
+			}else{
+				
+				echo json_encode($this->upload->display_errors('<div id="dialog-message" title="¡Ups! parece que tenemos un error"><p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>', '</p></div>'));
+			}
+			
+			
+		}else{
+			
+			show_404();
+		}
+
+	}
+
 
 	public function save_html($id, $id_html){
 		
@@ -474,9 +551,50 @@ class App  extends MX_Controller {
 			} 
 			
 			$this->load->model('Ajax_model');
-			$this->Ajax_model->get_image($item,"",$table,$id_html,$id_item);			
+			$this->Ajax_model->get_image($item,"",$table,$id_html,$id_item);
 			
+			$data['html'] = $this->App_model->get_primary($id);
+		
+			$data['style'] = $this->App_model->get_style_html($data['html']->id_html);			
 			
+			echo json_encode($data['style']->background_image);
+
+
+		}else{
+			
+			show_404();
+		}
+
+
+	}
+	
+	public function delete_image_carrusel($id){
+		
+		if($this->input->is_ajax_request()){
+			
+			$table = $this->input->post('table');
+			$item = $this->input->post('id');
+			$id_html = $this->input->post('id_html');
+
+			if($this->input->post('id_table')){
+				
+				$id_item = $this->input->post('id_table');
+				
+			}else{
+				
+				$id_item = FALSE;
+			} 
+			
+			$this->load->model('Ajax_model');
+			
+			$this->Ajax_model->delete_item($id_html, $table, $id_item);
+			
+			//$data['carrusel'] = $this->App_model->get_carrusel_html($id_html);
+			
+			//$data['html'] = $this->App_model->get_html($id,$id_html);
+
+			//echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/modal_form/modal_carrusel',$data, true));
+
 
 
 		}else{
