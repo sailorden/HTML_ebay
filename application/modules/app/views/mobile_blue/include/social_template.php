@@ -61,7 +61,7 @@
  <?php endif ?>
  
  <?php if (!isset($downloadable_version)): ?>
- 	<div dir="social_600_840" id="modal_form" <?php if(!isset($is_change)): ?>style="display: none;"<?php endif; ?> class="buttons_interface social"><i class="fa fa-pencil"></i></div>
+ 	<div dir="social_600_840" id="modal_form" <?php if(!isset($is_change)): ?>style="display: none;"<?php endif; ?> class="buttons_interface social modal_form"><i class="fa fa-pencil"></i></div>
  <?php endif ?>
 	<div class="clearfix"></div>
 

@@ -49,7 +49,7 @@ var ClickActionButton = {
             $('.buttons_interface.each').live('click',ClickActionButton.EachItem);
             $('.buttons_interface.carrusel.save').live('click',ClickActionButton.CarruselUp);
             $('.buttons_interface.style').live('click',ClickActionButton.StyleUp);
-            $('#modal_form').click(ClickActionButton.ModalForm);
+            //$('#modal_form').click(ClickActionButton.ModalForm);
             $('.modal_form').live('click',ClickActionButton.ModalForm);
 
            
