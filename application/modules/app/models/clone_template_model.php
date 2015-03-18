@@ -5,12 +5,23 @@ class Clone_template_model extends CI_Model{
     	parent::__construct();
   	}
 	
-	public function clone_template($id_template){
+	public function clone_template($id_template,$id_html){
 		
-		$this->clone_html($id_template);
+		$this->clone_html($id_template,$id_html);
 		
 		$this->db->trans_start();
-		$query = $this->db->get_where('html', array('id_template' => $id_template,'state' => 1));
+		if($id_template > 0 AND $id_html == 0)
+			$query = $this->db->get_where('html', array('id_template' => $id_template,'state' => 1));
+		
+		if($id_html > 0 AND $id_template == 0){
+			
+			$this->db->where('state', 1);
+			$this->db->order_by("id_html", "desc");
+			$this->db->limit(1);
+			$query = $this->db->get('html');
+		}
+
+			
 		$this->db->trans_complete();
 		
 		if ($this->db->trans_status() === FALSE)
@@ -18,17 +29,23 @@ class Clone_template_model extends CI_Model{
 		
 		$this->clone_menu($query->row()->id_html);
 		$this->clone_social($query->row()->id_html);
-		$this->clone_style($query->row()->id_html);
+		$this->clone_style($id_template,$id_html,$query->row()->id_html);
 		$this->clone_tabs($query->row()->id_html);
 		$this->clone_carrusel($query->row()->id_html);
 
-		return $query->row()->id_html;
+		return $query->row();
 	}
 	 
-   	private function clone_html($id_template){
+   	private function clone_html($id_template,$id_html){
    		
 		$this->db->trans_start();
-		$query = $this->db->get_where('html', array('id_template' => $id_template,'state' => 2));
+		
+		if($id_template > 0 AND $id_html == 0)
+			$query = $this->db->get_where('html', array('id_template' => $id_template,'state' => 2));
+		
+		if($id_html > 0 AND $id_template == 0)
+			$query = $this->db->get_where('html', array('id_html' => $id_html,'state' => 0));
+		
 		$this->db->trans_complete();
 		if ($this->db->trans_status() === FALSE) 
 			show_error('Error al intentar extraer datos desde la tabla html.'.__DIR__.' Linea '.__LINE__);
@@ -104,18 +121,37 @@ class Clone_template_model extends CI_Model{
 
    }
 	
-	private function clone_style($id_html){
-
-		$data = array(
+	private function clone_style($id_template,$id_clone_html,$id_html){
 		
-           'id_html' => $id_html,
-        );
+		if($id_template > 0){
 		
+			$data = array(
+			
+	           'id_html' => $id_html
+	           
+	        );
+			
+		}else{
+			
+			$this->db->where('id_html', $id_clone_html);
+			$query = $this->db->get('style');
+			
+			$data = array(
+			
+	           'id_html' => $id_html,
+	           'background_color' => $query->row()->background_color,
+	           'background_image' => $query->row()->background_image,
+	           'primary_color' => $query->row()->primary_color,
+	           'secondary_color' => $query->row()->secondary_color
+	        );
+		}
+			
 		$this->db->trans_start();
 		$this->db->insert('style', $data);
 		$this->db->trans_complete(); 
 		if ($this->db->trans_status() === FALSE)
 			show_error('Error al intentar insertar en la tabla style.'.__DIR__.' Linea '.__LINE__);
+		
 
    }
 	
@@ -125,7 +161,7 @@ class Clone_template_model extends CI_Model{
 		
            'id_html' => $id_html,
            'name_tab' => 'Tab 1',
-           'text_tab' => 'Lorem ipsum dolor '
+           'text_tab' => 'Lorem ipsum dolor'
         );
 		
 		$this->db->trans_start();

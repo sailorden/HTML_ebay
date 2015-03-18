@@ -36,6 +36,10 @@
   	left: 96%;
   	top: -6%;
 }
+.buttons_interface.animation {
+  left: 70%;
+  top: 63%;
+}
 .image_modal_form img {
   	left: 10%;
   	position:relative;
@@ -62,7 +66,10 @@
   left: 85%;
   top: 74%;
 }
-
+.jfilestyle.animation {
+  left: 70%;
+  top: 63%;
+}
 span.reducedfrom .input_toggle {
   width: 25% !important;
 }

@@ -30,10 +30,18 @@
     
     <div class="row">
     	<div class="col-md-6">
-    		<img src="<?= base_url('/mobile_blue/image/animado.gif') ?>"/>
+    		<?php if (!isset($downloadable_version)): ?>
+				<input hspace="html" dir="image" style="display: none;" id="animation_1" type="file" class="jfilestyle animation image"/>
+				<div style="display: none;" class="buttons_interface image animation animation_1"><i class="fa fa-camera"></i></div>
+			<?php endif ?>
+    		<img width="167" height="104" class="animation_1" src="<?= base_url('/mobile_blue/image/animado.jpg') ?>"/>
     	</div>
     	<div class="col-md-6">
-    		<img src="<?= base_url('/mobile_blue/image/animado.gif') ?>"/>
+    		<?php if (!isset($downloadable_version)): ?>
+				<input hspace="html" dir="image" style="display: none;" id="animation_2" type="file" class="jfilestyle animation image"/>
+				<div style="display: none;" class="buttons_interface image animation animation_2"><i class="fa fa-camera"></i></div>
+			<?php endif ?>
+    		<img width="167" height="104" class="animation_2" src="<?= base_url('/mobile_blue/image/animado.jpg') ?>"/>
     	</div>
     </div>
     

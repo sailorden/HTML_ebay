@@ -6,7 +6,7 @@
 	
 	<ul class="top_nav">
 
-		<li><a href="/labs">Mis plantillas</a></li>
+		<li><?=  anchor('app/my_html/', 'Mis plantillas', '') ?></li>
 		<li class="green"><?=  anchor('app/html/'.$this->uri->segment(3), 'Crear plantilla', '') ?></li>
 
 		<!--<li class="multi">
@@ -61,7 +61,7 @@
 				
 				<li><?=  anchor('app/download_html/'.$id_template.'/'.$id_html, '<i class="fa fa-download"></i>','title="Descargar" class="icons"') ?></li>
 				
-				<li><?=  anchor('login/logout', '<i class="fa fa-paste"></i>','title="Guardar como" class="icons"') ?></li>
+				<li><?=  anchor('app/html/0/'.$id_html, '<i class="fa fa-paste"></i>','title="Guardar como" class="icons"') ?></li>
 				
 			<?php endif; ?>
 			

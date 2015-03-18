@@ -76,6 +76,37 @@ class App_model extends CI_Model{
 	
    }
    
+   public function get_all_html(){
+			
+		$this->db->select('id_html,name_html,name_template,html.id_template AS idTemplate');
+		$this->db->join('templates', 'templates.id_template = html.id_template');
+		$this->db->where('state', 0); 
+		$query = $this->db->get('html');
+		
+		if ($query->num_rows() > 0){
+			
+			return $query->result();
+		}
+		else{
+				
+			return FALSE;
+		}
+				
+	
+   }
+   
+   public function delete_html($id_html){
+   		
+		$this->db->trans_start();
+		$this->db->delete('html', array('id_html' => $id_html)); 
+		$this->db->trans_complete(); 
+		
+		if ($this->db->trans_status() === FALSE):
+        	show_error('error_500');
+		endif;
+
+   }
+   
    public function get_menu_html($id_html){
 			
 		$this->db->select('*');

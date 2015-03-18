@@ -65,8 +65,14 @@ class App  extends MX_Controller {
 		if($id_html == 0){
 			
 			$this->load->model('Clone_template_model');
-			$html = $this->Clone_template_model->clone_template($id);
-			redirect('app/html/'.$id.'/'.$html);
+			$html = $this->Clone_template_model->clone_template($id,$id_html);
+			redirect('app/html/'.$html->id_template.'/'.$html->id_html);
+
+		}elseif($id == 0){
+			
+			$this->load->model('Clone_template_model');
+			$html = $this->Clone_template_model->clone_template($id,$id_html);
+			redirect('app/html/'.$html->id_template.'/'.$html->id_html);
 
 		}else{
 				
@@ -479,6 +485,36 @@ class App  extends MX_Controller {
 		}
 
 
+	}
+	
+	public function my_html(){
+		
+		$data['title'] = "Mis HTML | HTML ebay";
+			
+		$data['keywords'] = "";
+
+		$data['description'] = "";
+			
+		$data['reference'] = 'APP';
+		
+		$data['view'] = 'my_html';
+
+		$data['htmls'] = $this->App_model->get_all_html();
+		
+		$this->load->view('layout', $data);
+	}
+	
+	public function delete_html($id_html = FALSE){
+		
+		if($id_html){
+		
+			$this->App_model->delete_html($id_html);
+			redirect('app/my_html');
+		
+		}else{
+			
+			show_404();
+		}
 	}
 
 }
