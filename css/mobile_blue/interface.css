@@ -103,7 +103,7 @@ span.actual .input_toggle {
 }
 
 #name_product.buttons_interface {
-  right: 0px;
+  left: 100%;
   top: 4.3%;
 }
 
