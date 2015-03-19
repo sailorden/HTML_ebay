@@ -183,6 +183,7 @@ var ClickActionButton = {
 			data.append('id_html',id_html);
 			data.append('max_width',max_width);
 			data.append('max_height',max_height);
+			data.append('file_name',src[6]);
 			if($(this).attr('accesskey')){
 				
 				data.append('id_item',$(this).attr('accesskey'));
@@ -313,7 +314,7 @@ var ClickActionButton = {
 	
 			$.post(
 	        		base_url+'app/delete_image/'+id_template,
-	        		{id_html: id_html, id_table: id_table, table: table, id: id},
+	        		{id_html: id_html, id_table: id_table, table: table, id: id, url: src[4]+'/'+src[5]+'/'+src[6]},
 	        		function(data){
 	        			$('img.'+id).empty();
 	        			$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
@@ -329,11 +330,12 @@ var ClickActionButton = {
         	var img = $(this).attr('dir');
         	var id_html = $('#id_html').val();
         	var id_table = $(this).attr('accesskey');
+        	var src = $('.image_carrusel_'+img).attr('src').split("/");
         	$(this).hide();
 	
 			$.post(
 	        		base_url+'app/delete_image_carrusel/'+id_template,
-	        		{id_html: id_html, id_table: id_table, table: table, id: id},
+	        		{id_html: id_html, id_table: id_table, table: table, id: id, url: src[4]+'/'+src[5]+'/'+src[6]},
 	        		function(data){
 	        			
         				$('.image_carrusel_'+img).hide();

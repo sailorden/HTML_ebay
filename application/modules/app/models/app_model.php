@@ -200,6 +200,28 @@ class App_model extends CI_Model{
         	show_error('error_500');
 		endif;
    }
+	
+	public function get_image($id_html, $id_table = FALSE, $field_table, $table){
+			
+		$this->db->select($field_table);
+		
+		if($id_table){
+			$aux = explode('.',$id_table);
+			$this->db->where($aux[0], $aux[1]);
+		}
+		
+		$this->db->where('id_html', $id_html);
+		$query = $this->db->get($table);
+		
+		if ($query->num_rows() > 0){
+			
+			return $query->row_array();
+		}
+		else{
+				
+			return FALSE;
+		}	
+   }
 
    
 } 

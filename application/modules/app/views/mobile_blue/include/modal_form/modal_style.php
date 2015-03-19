@@ -23,7 +23,7 @@
 			
 			<?php if($style->background_image != "") : ?>
 			
-			<a href=""><img width="" height="" class="background_image" src="<?= base_url('/mobile_blue/image/'.$style->background_image) ?>" alt="<?= alt($value->background_image) ?>"/></a>
+			<a href=""><img width="300" height="300" class="background_image" src="<?= base_url('/mobile_blue/image/'.$style->background_image) ?>" alt="<?= alt($value->background_image) ?>"/></a>
 			
 			<?php else : ?>
 				

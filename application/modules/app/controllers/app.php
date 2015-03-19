@@ -353,6 +353,8 @@ class App  extends MX_Controller {
 		
 		if($this->input->is_ajax_request()){
 			
+			$primary_images = array('top1.jpg','top2.jpg','top3.jpg','promo.jpg','garantia.jpg','image.jpg','bg.jpg','animado.jpg','icono_example.jpg');
+			
 			$table = $this->input->post('table');
 			$item = $this->input->post('id');
 			$id_html = $this->input->post('id_html');
@@ -360,6 +362,13 @@ class App  extends MX_Controller {
 			$max_height = $this->input->post('max_height');
 			$folder_template = $this->input->post('folder_template');
 			$folder_image = $this->input->post('folder_image');
+			$name_image = $this->input->post('file_name');
+			
+			if(!in_array($name_image, $primary_images)){
+				$this->delete_image_url($folder_template.'/'.$folder_image.'/'.$name_image);
+			}
+			
+			
 			if($this->input->post('id_item')){
 				
 				$id_item = $this->input->post('id_item');
@@ -414,6 +423,8 @@ class App  extends MX_Controller {
 			$id_html = $this->input->post('id_html');
 			$folder_template = $this->input->post('folder_template');
 			$folder_image = $this->input->post('folder_image');
+			
+			
 			if($this->input->post('id_item')){
 				
 				$id_item = $this->input->post('id_item');
@@ -540,6 +551,7 @@ class App  extends MX_Controller {
 			$table = $this->input->post('table');
 			$item = $this->input->post('id');
 			$id_html = $this->input->post('id_html');
+			$url = $this->input->post('url');
 
 			if($this->input->post('id_item')){
 				
@@ -551,6 +563,9 @@ class App  extends MX_Controller {
 			} 
 			
 			$this->load->model('Ajax_model');
+			
+			$this->delete_image_file($url);
+			
 			$this->Ajax_model->get_image($item,"",$table,$id_html,$id_item);
 			
 			$data['html'] = $this->App_model->get_primary($id);
@@ -575,6 +590,7 @@ class App  extends MX_Controller {
 			$table = $this->input->post('table');
 			$item = $this->input->post('id');
 			$id_html = $this->input->post('id_html');
+			$url = $this->input->post('url');
 
 			if($this->input->post('id_table')){
 				
@@ -587,15 +603,11 @@ class App  extends MX_Controller {
 			
 			$this->load->model('Ajax_model');
 			
+			$this->delete_image_file($url);
+			
+			//$this->delete_image_file($id, $id_html, $id_item, $table, $item, 'carrusel');
+			
 			$this->Ajax_model->delete_item($id_html, $table, $id_item);
-			
-			//$data['carrusel'] = $this->App_model->get_carrusel_html($id_html);
-			
-			//$data['html'] = $this->App_model->get_html($id,$id_html);
-
-			//echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/modal_form/modal_carrusel',$data, true));
-
-
 
 		}else{
 			
@@ -633,6 +645,36 @@ class App  extends MX_Controller {
 			
 			show_404();
 		}
+	}
+	
+	private function delete_image_template($id_template, $id_html, $id_table, $table, $field_image, $folder){
+		
+		$folder_template = url_title($this->App_model->get_template($id_template), 'underscore');
+		
+		$file = $this->App_model->get_image($id_html, $id_table, $field_image, $table);
+		
+		if(!unlink($folder_template.'/'.$folder.'/'.$file[$field_image]))
+		{
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+		
+	}
+	
+	private function delete_image_url($url){
+		
+		if(!unlink($url))
+		{
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+		
 	}
 
 }
