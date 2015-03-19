@@ -667,7 +667,7 @@ class App  extends MX_Controller {
 		}
 	}
 	
-	private function delete_image_template($id_template, $id_html, $id_table, $table, $field_image, $folder){
+	/*private function delete_image_template($id_template, $id_html, $id_table, $table, $field_image, $folder){
 		
 		$folder_template = url_title($this->App_model->get_template($id_template), 'underscore');
 		
@@ -682,7 +682,7 @@ class App  extends MX_Controller {
 			return TRUE;
 		}
 		
-	}
+	}*/
 	
 	private function delete_image_url($url){
 		
