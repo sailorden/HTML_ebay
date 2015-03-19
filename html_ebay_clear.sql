@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 06-03-2015 a las 12:56:38
--- Versión del servidor: 5.6.17-log
--- Versión de PHP: 5.5.12
+-- Servidor: localhost
+-- Tiempo de generación: 18-03-2015 a las 15:20:02
+-- Versión del servidor: 5.5.24-log
+-- Versión de PHP: 5.4.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `carrusel` (
   `id_html` int(11) NOT NULL,
   `image_carrusel` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_carrusel`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `carrusel`
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `carrusel` (
 
 INSERT INTO `carrusel` (`id_carrusel`, `id_html`, `image_carrusel`) VALUES
 (1, 1, 'pic1.jpg'),
-(2, 1, 'pic2.jpg');
+(60, 1, 'pic2.jpg');
 
 -- --------------------------------------------------------
 
@@ -68,16 +68,18 @@ CREATE TABLE IF NOT EXISTS `html` (
   `title_footer_2` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `text_footer_1` text COLLATE utf8_unicode_ci,
   `text_footer_2` text COLLATE utf8_unicode_ci,
+  `animation_1` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `animation_2` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `state` tinyint(3) DEFAULT NULL,
   PRIMARY KEY (`id_html`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `html`
 --
 
-INSERT INTO `html` (`id_html`, `id_template`, `name_html`, `name_product`, `price`, `old_price`, `description_product`, `img_top_1_html`, `img_top_2_html`, `img_top_3_html`, `name_menu`, `banner_1`, `banner_2`, `shipping_image_1`, `shipping_image_2`, `shipping_image_3`, `title_footer_1`, `title_footer_2`, `text_footer_1`, `text_footer_2`, `state`) VALUES
-(1, 1, 'mobile_blue_primary', 'Producto de prueba', '80.99', '99.99', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mattis dolor. Pellentesque ultricies turpis eget tellus hendrerit volutpat. Sed sit amet erat sit amet magna feugiat lacinia eget in ligula. Phasellus sem nibh, viverra at elementum nec, feugiat ac magna.\r\n\r\nPellentesque pellentesque malesuada magna sed condimentum. ', 'top1.jpg', 'top2.jpg', 'top3.jpg', 'Menú', 'promo.jpg', 'garantia.jpg', 'image.jpg', 'image.jpg', 'image.jpg', 'Atención al cliente', 'Contacto', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mattis dolor. Pellentesque ultricies turpis eget tellus hendrerit volutpat. Sed sit amet erat sit amet magna feugiat lacinia eget in ligula. Phasellus sem nibh, viverra at elementum nec, feugiat ac magna. Pellentesque pellentesque malesuada magna sed condimentum. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mattis dolor. Pellentesque ultricies turpis eget tellus hendrerit volutpat. Sed sit amet erat sit amet magna feugiat lacinia eget in ligula. Phasellus sem nibh, viverra at elementum nec, feugiat ac magna. Pellentesque pellentesque malesuada magna sed condimentum. ', 2);
+INSERT INTO `html` (`id_html`, `id_template`, `name_html`, `name_product`, `price`, `old_price`, `description_product`, `img_top_1_html`, `img_top_2_html`, `img_top_3_html`, `name_menu`, `banner_1`, `banner_2`, `shipping_image_1`, `shipping_image_2`, `shipping_image_3`, `title_footer_1`, `title_footer_2`, `text_footer_1`, `text_footer_2`, `animation_1`, `animation_2`, `state`) VALUES
+(1, 1, 'mobile_blue_primary', 'Producto de prueba', '80.99', '99.99', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mattis dolor. Pellentesque ultricies turpis eget tellus hendrerit volutpat. Sed sit amet erat sit amet magna feugiat lacinia eget in ligula. Phasellus sem nibh, viverra at elementum nec, feugiat ac magna.\r\n\r\nPellentesque pellentesque malesuada magna sed condimentum. ', 'top1.jpg', 'top2.jpg', 'top3.jpg', 'Menú', 'promo.jpg', 'garantia.jpg', 'image.jpg', 'image.jpg', 'image.jpg', 'Atención al cliente', 'Contacto', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mattis dolor. Pellentesque ultricies turpis eget tellus hendrerit volutpat. Sed sit amet erat sit amet magna feugiat lacinia eget in ligula. Phasellus sem nibh, viverra at elementum nec, feugiat ac magna. Pellentesque pellentesque malesuada magna sed condimentum. ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mattis dolor. Pellentesque ultricies turpis eget tellus hendrerit volutpat. Sed sit amet erat sit amet magna feugiat lacinia eget in ligula. Phasellus sem nibh, viverra at elementum nec, feugiat ac magna. Pellentesque pellentesque malesuada magna sed condimentum. ', NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -92,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `icono_menu` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link_menu` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `menu`
@@ -100,9 +102,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 INSERT INTO `menu` (`id_menu`, `id_html`, `name_menu`, `icono_menu`, `link_menu`) VALUES
 (1, 1, 'Link 1', NULL, '#'),
-(2, 1, 'Link 2', NULL, '#'),
-(3, 1, 'Link 3', NULL, '#'),
-(4, 1, 'Link 4', NULL, '#');
+(2, 1, 'Link 2', NULL, '#');
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `social` (
   `social_pinterest` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `social_instagram` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_social`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `social`
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `style` (
   `primary_color` varchar(7) COLLATE utf8_unicode_ci DEFAULT NULL,
   `secondary_color` varchar(7) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_style`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `style`
@@ -167,14 +167,14 @@ CREATE TABLE IF NOT EXISTS `tabs` (
   `name_tab` varchar(20) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
   `text_tab` text CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
   PRIMARY KEY (`id_tab`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `tabs`
 --
 
 INSERT INTO `tabs` (`id_tab`, `id_html`, `name_tab`, `text_tab`) VALUES
-(1, 1, 'DESCRIPCIÓN', '\r\n\r\n    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat\r\n    augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione\r\n    claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica\r\n    Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.\r\n'),
+(1, 1, 'DESCRIPCIÓN', '\n\n    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat\n    augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione\n    claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica\n    Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.\n'),
 (2, 1, 'CONDICIONES', '\r\n\r\n    augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione\r\n    claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica\r\n    Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.\r\n'),
 (3, 1, 'DEVOLUCIONES', '\r\n\r\n    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat\r\n    augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatione\r\n    claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores leg\r\n    Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.\r\n'),
 (4, 1, 'VÍDEOS', 'video');

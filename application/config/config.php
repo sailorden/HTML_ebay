@@ -19,6 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $config['base_url'] = 'http://localhost/HTML_ebay/';
+//$config['base_url'] = 'http://www.movilino.com/HTML_ebay/';
 
 
 /*
