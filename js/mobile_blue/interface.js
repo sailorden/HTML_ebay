@@ -202,11 +202,13 @@ var ClickActionButton = {
 					
 					var result = JSON.parse(data).split('.');
 					
-					if(result[1] == "jpg" || result[1] == "jpeg"){
+					if(result[1] == "jpg" || result[1] == "jpeg" || result[1] == "png" || result[1] == "gif"){
 						
 						$('.'+id).empty();
 						$('.'+id).append('<i class="fa fa-camera"></i>');
 						$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
+						$('img.'+id).attr('width',max_width);
+						$('img.'+id).attr('height',max_height);
 						$('.delete_'+id).show();
 	
 					}else{
@@ -240,7 +242,6 @@ var ClickActionButton = {
         	var folder_template = $('#folder_template').val();
         	var folder_image = $(this).attr('dir');
         	var id_html = $('#id_html').val();
-        	//var src = $('img.'+id).attr('src').split("/");
         	$('.'+id).empty();
         	$('.'+id).append('<img src="'+base_url+folder_template+'/image/loading.png" />');
         	
@@ -265,17 +266,11 @@ var ClickActionButton = {
 
 					var json = JSON.parse(data);
 					
+					var result = json[1].split('.');
 					
-					$("#form-carrusel").html(json);
-					
-					//var result = JSON.parse(data).split('.');
-					
-					/*if(result[1] == "jpg" || result[1] == "jpeg"){
-						
-						$('.'+id).empty();
-						$('.'+id).append('<i class="fa fa-camera"></i>');
-						//$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
-						//$('.delete_'+id).show();
+					if(result[1] == "jpg" || result[1] == "jpeg" || result[1] == "png" || result[1] == "gif"){
+
+						$("#form-carrusel").html(json[0]);
 	
 					}else{
 
@@ -294,7 +289,7 @@ var ClickActionButton = {
 							});
 							
 						});
-					}*/
+					}
 						
 			});
         },
@@ -313,12 +308,31 @@ var ClickActionButton = {
 			}
 	
 			$.post(
-	        		base_url+'app/delete_image/'+id_template,
+	        		base_url+'app/delete_background/'+id_template,
 	        		{id_html: id_html, id_table: id_table, table: table, id: id, url: src[4]+'/'+src[5]+'/'+src[6]},
 	        		function(data){
-	        			$('img.'+id).empty();
-	        			$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(data));
-	        			$('.delete_'+id).hide();
+	        			
+	        			var json = JSON.parse(data);
+	        			
+	        			if(!JSON.parse(json[1])){
+	        			
+		        			$('img.'+id).empty();
+		        			$('img.'+id).attr('src',base_url+src[4]+'/'+src[5]+'/'+JSON.parse(json[0]));
+		        			$('.delete_'+id).hide();
+	        			
+	        			}else{
+	        				
+	        				$('body').append(JSON.parse(json[1]));
+							$( "#dialog-message" ).dialog({
+								modal: true,
+								buttons: {
+									Ok: function() {
+										$( this ).dialog( "close" );
+									}
+								}
+							});
+	        				
+	        			}
 					}
 				);
         },
@@ -331,7 +345,10 @@ var ClickActionButton = {
         	var id_html = $('#id_html').val();
         	var id_table = $(this).attr('accesskey');
         	var src = $('.image_carrusel_'+img).attr('src').split("/");
-        	$(this).hide();
+        	var button = $(this);
+        	
+        	$(this).empty();
+        	$(this).append('<img src="'+base_url+folder_template+'/image/loading.png" />');
 	
 			$.post(
 	        		base_url+'app/delete_image_carrusel/'+id_template,
@@ -339,6 +356,7 @@ var ClickActionButton = {
 	        		function(data){
 	        			
         				$('.image_carrusel_'+img).hide();
+        				button.hide();
 	        			
 					}
 				);

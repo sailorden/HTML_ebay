@@ -203,7 +203,7 @@ ul.nav li.button:hover {
   float: left !important;
 }
 
-.image_carrusel .fa.fa-camera {
+.image_carrusel > *{
   left: 7px;
   position: absolute;
   top: 8px;
@@ -211,4 +211,8 @@ ul.nav li.button:hover {
 
 .buttons_interface.carrusel.add {
   padding: 0;
+}
+
+.form-group.buttons {
+  padding-left: 15px;
 }

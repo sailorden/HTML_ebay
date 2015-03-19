@@ -27,7 +27,7 @@
 			
 			<?php else : ?>
 				
-			<a href=""><img width="" height="" class="background_image" src="<?= base_url('/mobile_blue/image/bg.jpg') ?>" alt="bg.jpg"/></a>
+			<a href=""><img width="300" height="300" class="background_image" src="<?= base_url('/mobile_blue/image/bg.jpg') ?>" alt="bg.jpg"/></a>
 				
 			<?php endif; ?>
 			<button accesskey="<?= $style->id_style ?>" <?php if(!$style->background_image) : ?>style="display: none;"<?php endif; ?> hspace="style" dir="image" id="background_image" class="image_delete delete_background_image"><i class="fa fa-remove"></i></button>

@@ -381,8 +381,15 @@ class App  extends MX_Controller {
 			$config['upload_path'] = $folder_template.'/'.$folder_image.'/';
 			$config['allowed_types'] = '*';
 			$config['max_size']     = '500';
-			$config['max_width'] = $max_width;
-			$config['max_height'] = $max_height;
+			
+			if($table == 'style'){
+				$config['max_width'] = 0;
+				$config['max_height'] = 0;
+			}else{
+				$config['max_width'] = $max_width;
+				$config['max_height'] = $max_height;
+			}
+			
 			$config['overwrite'] = FALSE;
 			
 			$this->load->library('upload');
@@ -457,7 +464,14 @@ class App  extends MX_Controller {
 					$data['carrusel'] = $this->App_model->get_carrusel_html($id_html);
 					$data['html'] = $this->App_model->get_html($id,$id_html);
 
-					echo json_encode($this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/modal_form/modal_carrusel',$data, true));
+					$json = array(
+			
+							$this->load->view(url_title($this->App_model->get_template($id), 'underscore').'/include/modal_form/modal_carrusel',$data, true),
+							$data_image['file_name']
+						
+						);
+			
+					echo json_encode($json);
 
 				}else{
 					
@@ -544,7 +558,7 @@ class App  extends MX_Controller {
 	}
 			
 
-	public function delete_image($id){
+	public function delete_background($id){
 		
 		if($this->input->is_ajax_request()){
 			
@@ -564,7 +578,11 @@ class App  extends MX_Controller {
 			
 			$this->load->model('Ajax_model');
 			
-			$this->delete_image_file($url);
+			$json = array(FALSE, FALSE);
+			
+			if(!$this->delete_image_url($url))
+				$json[1] = json_encode('<div id="dialog-message" title="¡Ups! parece que tenemos un error"><p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>Problemas al eliminar el archivo de imagen de fondo.', '</p></div>');
+				
 			
 			$this->Ajax_model->get_image($item,"",$table,$id_html,$id_item);
 			
@@ -572,7 +590,9 @@ class App  extends MX_Controller {
 		
 			$data['style'] = $this->App_model->get_style_html($data['html']->id_html);			
 			
-			echo json_encode($data['style']->background_image);
+			$json[0] = json_encode($data['style']->background_image);
+			
+			echo json_encode($json);
 
 
 		}else{
@@ -603,9 +623,9 @@ class App  extends MX_Controller {
 			
 			$this->load->model('Ajax_model');
 			
-			$this->delete_image_file($url);
-			
-			//$this->delete_image_file($id, $id_html, $id_item, $table, $item, 'carrusel');
+			if(!$this->delete_image_url($url))
+				echo json_encode('<div id="dialog-message" title="¡Ups! parece que tenemos un error"><p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>Problemas al eliminar el archivo de imagen del carrusel.', '</p></div>');
+				
 			
 			$this->Ajax_model->delete_item($id_html, $table, $id_item);
 

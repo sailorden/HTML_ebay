@@ -13,7 +13,7 @@
 		<?php endforeach ?>
 		</div>
 
-		<div class="form-group">
+		<div class="form-group buttons">
 			<div class="buttons_interface carrusel add ">
 				<input accesskey="<?= $id_html ?>" hspace="carrusel" dir="carrusel" id="image_carrusel" type="file" class="jfilestyle carrusel add images"/>
 				<div class="image_carrusel"><i class="fa fa-camera"></i></div>
