@@ -96,6 +96,10 @@ ul.social li a i.instagram{
 	height: auto;
 	display:block;
 }
+
+.row.animations {
+  margin-top: 15px !important;
+}
 /* Default Skin */
 .wmuSliderPagination {
 	z-index: 2;
@@ -2299,4 +2303,8 @@ h3.like, h3.recent {
 
 #horizontalTab {
 	display: block; width: 100%; margin: 0px;
+}
+
+.row.animations {
+  margin-top: 15px !important;
 }

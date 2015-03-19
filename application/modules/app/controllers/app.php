@@ -191,7 +191,7 @@ class App  extends MX_Controller {
 			$this->load->model('Ajax_model');
 			$this->Ajax_model->set_text($data, $table, $id_html,$id_item);
 			
-			$data['html'] = $this->App_model->get_primary($id);
+			$data['html'] = $this->App_model->get_html($id, $id_html);
 			$data['social'] = $this->App_model->get_social_html($id_html);
 			$data['menu'] = $this->App_model->get_menu_html($id_html);
 			$data['is_change'] = TRUE;

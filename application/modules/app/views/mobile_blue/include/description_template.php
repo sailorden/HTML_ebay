@@ -28,7 +28,7 @@
     	<button id="description_product" hspace="html" style="display: none;" class="buttons_interface textarea"><i class="fa fa-pencil"></i></button>
     <?php endif ?>
     
-    <div class="row">
+    <div class="row animations">
     	<div class="col-md-6">
     		<?php if (!isset($downloadable_version)): ?>
 				<input hspace="html" dir="image" style="display: none;" id="animation_1" type="file" class="jfilestyle animation image"/>
